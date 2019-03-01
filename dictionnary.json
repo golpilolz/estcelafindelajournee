@@ -54,7 +54,7 @@
   },
   {
     "start": "180000",
-    "end": "000000",
+    "end": "235959",
     "texts": [
       "GOGOGOGOGOGOGO",
       "C'est fini, rentre chez toi."
