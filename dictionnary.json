@@ -1,0 +1,63 @@
+[
+  {
+    "start": "000000",
+    "end": "100000",
+    "texts": [
+      "Non.",
+      "T'as déjà envie de rentrer ?!",
+      "Tu vas pas nous enquiquiner toute la journée !",
+      "Non, mais tu peux aller prendre un café.",
+      "C'est autant la fin de la journée que ce sera le début de la journée quand ce sera la fin de la journée."
+    ]
+  },
+  {
+    "start": "100000",
+    "end": "120000",
+    "texts": [
+      "Non.",
+      "Certainement pas",
+      "Tu ferais bien de te remettre au travail",
+      "Oulaaah, non gamin !",
+      "Non. Maintenant, retourne engraisser ton patron."
+    ]
+  },
+  {
+    "start": "120000",
+    "end": "140000",
+    "texts": [
+      "Non.",
+      "Non, mais tu peux aller manger.",
+      "Aller, va manger. Mais c'est pas la fin de la journée !",
+      "Non, c'est la pause de midi.",
+      "Non, mais tu peux arrêter de bosser pour le moment."
+    ]
+  },
+  {
+    "start": "140000",
+    "end": "160000",
+    "texts": [
+      "Non.",
+      "Non, mais tu peux reprendre un café.",
+      "Non, mais on se rapproche.",
+      "Va demander à ton supérieur ce que tu peux faire, t'as l'air désoeuvré."
+    ]
+  },
+  {
+    "start": "160000",
+    "end": "180000",
+    "texts": [
+      "On y est presque, courage !*",
+      "Bientôt, BIENTÔT, *BIENTÔT* !",
+      "Tu peux commencer à discrètement ranger tes affaires.",
+      "Tes chaussures sont bien lassées ?"
+    ]
+  },
+  {
+    "start": "180000",
+    "end": "235959",
+    "texts": [
+      "GOGOGOGOGOGOGO",
+      "C'est fini, rentre chez toi."
+    ]
+  }
+]
