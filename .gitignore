@@ -10,4 +10,4 @@
 
 /.idea/
 .stack.yaml
-.env
+.env.local
