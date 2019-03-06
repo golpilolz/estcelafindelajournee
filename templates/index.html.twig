@@ -1,5 +1,13 @@
 {% extends 'base.html.twig' %}
 
+{% block description %}
+    {{ reponse }}
+{% endblock %}
+
+{% block ogdescription %}
+    {{ reponse }}
+{% endblock %}
+
 {% block body %}
     <h1>{{ reponse }}</h1>
 {% endblock %}
