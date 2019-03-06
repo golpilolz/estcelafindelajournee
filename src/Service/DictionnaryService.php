@@ -26,6 +26,7 @@ class DictionnaryService
     public function getWord(): string
     {
         $datetime = new \DateTime();
+        $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
         $currenttime = $datetime->format('Gis');
 
         $words = $this->getWords($currenttime);
