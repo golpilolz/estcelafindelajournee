@@ -31,7 +31,8 @@ class DefaultController extends AbstractController
         $word = $this->dictionnaryService->getWord();
 
         return new JsonResponse([
-            'word' => $word
+            'word' => $word,
+            'test' => 'test'
         ]);
     }
 }

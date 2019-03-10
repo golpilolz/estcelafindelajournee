@@ -4,16 +4,29 @@ sudo: false
 php:
   - 7.3
 
+env:
+  global:
+  - AWS_DEFAULT_REGION=us-east-1
+  # AWS_KEY
+  - secure: "0J8yy0N/RwkhB1IWg0+5lys9FF8iSdepyhESS4VrYe6ct868A8tdJxvBbw+iL8jkC59genVCZmZLrUG7WaaM93Sz6qHFYOUPVBxQdokJtSHtEoC6LN/WszsRol5PAnNdqLbR3/oqSixNQmD+o/kfQ4izkt/dMHbIsk+UQFeL0Xa/Z5SJ7uNo8KPfQsZtW37jMfxY3HBy0/9yGpC53rYqT2jeGLAtzWRE4p1nV17npZUgp02QR83HxDKVx9X9cY+ZyLnxlE/oiFM8fk9cRGNqrvAXJj3tGOFsPKCUAut8cg+M4NHdQJyySRfNON89fssvLsPyueOhWYVBWmmT+KHatz74G2eTnc4vRXsLia7pHSU7FXho5hHduGjpX7gnSmSI7BidTeYeGOO8M9edyyY16h5PnnBinkayTgPA+/1HvIGToxEVf8OrqHOv6Pr6ZP4fTFXWCujEDSHprApTvpwpLDSQBgJuZgHmfSxaab/LWRDfT0bOFgwwRkQdACZ4vsORhcHcERZRnsZUuJwaYmHCVHaBsXhTdzxQlG9r/nULORjfCP4iU/vBteH1h+4P0QvBWs8ychmqsRaEFQngPA813zP6x3CBGjfFyzYzCiS+mvw4tBJ1EUUudLUr5KFN4s53BZcK3xv/vtm73s8epYOCWPPvSdjPLRIQdX5cDQA0NUY="
+  # AWS_SECRET
+  - secure: "gA7OFAlTCnYAZPDgzirk54dbZJh1MRt4/ejgmvdQ6ck8bfEFbOrKxiLQHb0i3HlmbQquRHXDMLgzDRwUe03s5MbeC9Ze+ynuz7t/NhPFkgPRvdZt9xOYjggTiPHZR4pO2i0B7bJJC5BAQ9QExjJhe39mGo7FsXFFtr7sRrT94ho09aOY38BLMHdVAIdxoV3wB5J7ghBX//9fcsOTavhXjgFTMozrG3ziOH6Du/Uqwaam0qUa2UTp5uV6IRAJ+SVGEvdwj4X5vbvU3LOq2Z4aaE7hE8ImDVkG++bzBUp9KiufODG/P9NMUfiS3Aw5lZty/hts+5o6S7LzNaxsujRTj80wA8dMe3Lv3xtEjSzuV60kOIYCiYnQ3Kh2EI8aBxJO1Ueo9GGKEgLllXhzJPcZsi/ZGXm+hryxkcHeoujULpFZIdSQekJvcE/SuNSNc2NWqRCfrTkeVxYYYJx3iPXgmKUkHk4RbFNGzXgiVSh9hom0uETVGG8Nkm8KOwGMdhWAngWgqNA1xP0vrHkbx6q17DWQ3522E/cAzOl0+Ha5TAONPRCdg0CZhB6wXDplm9wAgjrgzI/6X/SuWP/7sGAl/lPP6P0ow5D81BKkN69fZppPFHafdmZL+bMUsjCspHQjQphfx6lte31GHBtFET4D5HL8ITNgCmAyK+pLRdEqtA4="
+
+
 before_install:
   - composer self-update
 
 install:
   - composer install --no-interaction --dev
+  - pip install --user awscli
+  - pip install --user aws-sam-cli
 
-jobs:
-  include:
-    - name: Deploy
-      script:
-        - phpunit
-        - pip install --user awscli
-        - pip install --user aws-sam-cli
+script:
+  - sam validate
+  - sam package --output-template-file .stack.yaml --s3-bucket estcelafindelajournee
+    --region $AWS_DEFAULT_REGION
+deploy:
+  provider: script
+  script: sam deploy --template-file .stack.yaml --capabilities CAPABILITY_IAM --stack-name
+    estcelafindelajournee --region $AWS_DEFAULT_REGION
+  skip_cleanup: true
