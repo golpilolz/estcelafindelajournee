@@ -17,4 +17,3 @@ jobs:
         - phpunit
         - pip install --user awscli
         - pip install --user aws-sam-cli
-      if: branch = master AND fork = false
