@@ -1,0 +1,15 @@
+language: php
+sudo: false
+
+before_install:
+  - composer self-update
+
+install:
+  - composer install --no-interaction --dev
+  - ./bin/phpunit install
+
+jobs:
+  include:
+    - name: Tests
+      script:
+        - phpunit
