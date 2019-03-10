@@ -9,10 +9,12 @@ before_install:
 
 install:
   - composer install --no-interaction --dev
-  - ./bin/phpunit install
 
 jobs:
   include:
-    - name: Tests
+    - name: Deploy
       script:
         - phpunit
+        - pip install --user awscli
+        - pip install --user aws-sam-cli
+      if: branch = master AND fork = false
