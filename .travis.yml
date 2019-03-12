@@ -17,6 +17,7 @@ install:
   - pip install --user aws-sam-cli
 
 before_script: false
+before_deploy: false
 
 deploy:
   provider: script
