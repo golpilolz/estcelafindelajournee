@@ -22,11 +22,6 @@ install:
   - pip install --user aws-sam-cli
 
 script:
-  - sam validate
-  - sam package --output-template-file .stack.yaml --s3-bucket estcelafindelajournee
-    --region $AWS_DEFAULT_REGION
-deploy:
-  provider: script
-  script: sam deploy --template-file .stack.yaml --capabilities CAPABILITY_IAM --stack-name
-    estcelafindelajournee --region $AWS_DEFAULT_REGION
-  skip_cleanup: true
+  - cp .env.dist .env
+  - sed -ri 's/^AWS_KEY=/AWS_SECRET_VAL=\$AWS_KEY/' .env
+  - cat .env
