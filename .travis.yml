@@ -19,3 +19,6 @@ install:
 script:
   - envsubst < .env.travis > .env
   - cat .env
+  - sam package --output-template-file .stack.yaml --s3-bucket estcelafindelajournee --region us-east-1
+  - sam deploy --template-file .stack.yaml --capabilities CAPABILITY_IAM --stack-name estcelafindelajournee --region us-east-1
+
