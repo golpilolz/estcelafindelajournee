@@ -16,8 +16,9 @@ install:
   - pip install --user awscli
   - pip install --user aws-sam-cli
 
-script:
-  - envsubst < .env.travis > .env
-  - sam package --output-template-file .stack.yaml --s3-bucket estcelafindelajournee --region us-east-1
-  - sam deploy --template-file .stack.yaml --capabilities CAPABILITY_IAM --stack-name estcelafindelajournee --region us-east-1
-
+deploy:
+  provider: script
+  script: envsubst < .env.travis > .env && sam package --output-template-file .stack.yaml --s3-bucket estcelafindelajournee --region us-east-1 && sam deploy --template-file .stack.yaml --capabilities CAPABILITY_IAM --stack-name estcelafindelajournee --region us-east-1
+  on:
+    tags: true
+    branch: master
