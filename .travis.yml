@@ -17,5 +17,5 @@ install:
   - pip install --user aws-sam-cli
 
 script:
-  - envsubst < .env.dist > .env
+  - envsubst < .env.travis > .env
   - cat .env
