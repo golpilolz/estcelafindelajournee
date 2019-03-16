@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1b74e30dfb6b0f934fdf5b47119555a",
+    "content-hash": "6973954472d16fcd41cba9153f1ec3cc",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -1220,6 +1220,46 @@
             ],
             "description": "A polyfill for getallheaders.",
             "time": "2016-02-11T07:05:27+00:00"
+        },
+        {
+            "name": "rfreebern/giphy-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/rfreebern/giphy-php.git",
+                "reference": "131065011f429ba42e05cfb84689c316600f13e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/rfreebern/giphy-php/zipball/131065011f429ba42e05cfb84689c316600f13e2",
+                "reference": "131065011f429ba42e05cfb84689c316600f13e2",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "rfreebern": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "CC0-1.0"
+            ],
+            "authors": [
+                {
+                    "name": "Ryan Freebern",
+                    "email": "ryan@freebern.org"
+                }
+            ],
+            "description": "A library implementing access to the Giphy API.",
+            "keywords": [
+                "gif",
+                "gifs",
+                "giphy",
+                "images",
+                "search"
+            ],
+            "time": "2018-03-25T21:17:41+00:00"
         },
         {
             "name": "symfony/cache",
@@ -2704,7 +2744,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "rfreebern/giphy-php": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

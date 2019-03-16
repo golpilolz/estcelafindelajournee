@@ -74,6 +74,9 @@
     "ralouphie/getallheaders": {
         "version": "2.0.5"
     },
+    "rfreebern/giphy-php": {
+        "version": "dev-master"
+    },
     "symfony/cache": {
         "version": "v4.2.3"
     },
