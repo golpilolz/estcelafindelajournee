@@ -8,7 +8,8 @@ This is a project that aims to test API hosting under Symfony in an AWS lambda
 
 ```json
 {
-  "word":"word"
+  "word":"word",
+  gif	"gif_key"
 }
 ```
 
