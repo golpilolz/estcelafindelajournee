@@ -23,7 +23,8 @@ class DefaultController extends AbstractController
         $word = $this->dictionnaryService->getWord();
 
         return $this->render('index.html.twig', [
-            'word' => $word
+            'word' => $word['response'],
+            'gif' => $word['gif']
         ]);
     }
 
@@ -31,7 +32,8 @@ class DefaultController extends AbstractController
         $word = $this->dictionnaryService->getWord();
 
         return new JsonResponse([
-            'word' => $word
+            'word' => $word['response'],
+            'gif' => $word['gif']
         ]);
     }
 }
