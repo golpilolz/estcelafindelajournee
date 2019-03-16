@@ -2,62 +2,106 @@
   {
     "start": "000000",
     "end": "100000",
-    "texts": [
-      "Non.",
-      "T'as déjà envie de rentrer ?!",
-      "Tu vas pas nous enquiquiner toute la journée !",
-      "Non, mais tu peux aller prendre un café.",
-      "C'est autant la fin de la journée que ce sera le début de la journée quand ce sera la fin de la journée."
-    ]
+    "texts": [{
+      "response": "Non.",
+      "gif": "FEikw3bXVHdMk"
+    },{
+      "response": "T'as déjà envie de rentrer ?!",
+      "gif": ""
+    },{
+      "response": "Tu vas pas nous enquiquiner toute la journée !",
+      "gif": ""
+    },{
+      "response": "Non, mais tu peux aller prendre un café.",
+      "gif": ""
+    },{
+      "response": "C'est autant la fin de la journée que ce sera le début de la journée quand ce sera la fin de la journée.",
+      "gif": ""
+    }]
   },
   {
     "start": "100000",
     "end": "120000",
-    "texts": [
-      "Non.",
-      "Certainement pas",
-      "Tu ferais bien de te remettre au travail",
-      "Oulaaah, non gamin !",
-      "Non. Maintenant, retourne engraisser ton patron."
-    ]
+    "texts": [{
+      "response": "Non.",
+      "gif": ""
+    },{
+      "response": "Certainement pas",
+      "gif": ""
+    },{
+      "response": "Tu ferais bien de te remettre au travail",
+      "gif": ""
+    },{
+      "response": "Oulaaah, non gamin !",
+      "gif": ""
+    },{
+      "response": "Non. Maintenant, retourne engraisser ton patron.",
+      "gif": ""
+    }]
   },
   {
     "start": "120000",
     "end": "140000",
-    "texts": [
-      "Non.",
-      "Non, mais tu peux aller manger.",
-      "Aller, va manger. Mais c'est pas la fin de la journée !",
-      "Non, c'est la pause de midi.",
-      "Non, mais tu peux arrêter de bosser pour le moment."
-    ]
+    "texts": [{
+      "response": "Non.",
+      "gif": ""
+    },{
+      "response": "Non, mais tu peux aller manger.",
+      "gif": ""
+    },{
+      "response": "Aller, va manger. Mais c'est pas la fin de la journée !",
+      "gif": ""
+    },{
+      "response": "Non, c'est la pause de midi.",
+      "gif": ""
+    },{
+      "response": "Non, mais tu peux arrêter de bosser pour le moment.",
+      "gif": ""
+    }]
   },
   {
     "start": "140000",
     "end": "160000",
-    "texts": [
-      "Non.",
-      "Non, mais tu peux reprendre un café.",
-      "Non, mais on se rapproche.",
-      "Va demander à ton supérieur ce que tu peux faire, t'as l'air désoeuvré."
-    ]
+    "texts": [{
+      "response": "Non.",
+      "gif": ""
+    },{
+      "response": "Non, mais tu peux reprendre un café.",
+      "gif": ""
+    },{
+      "response": "Non, mais on se rapproche.",
+      "gif": ""
+    },{
+      "response": "Va demander à ton supérieur ce que tu peux faire, t'as l'air désoeuvré.",
+      "gif": ""
+    }]
   },
   {
     "start": "160000",
     "end": "180000",
-    "texts": [
-      "On y est presque, courage !*",
-      "Bientôt, BIENTÔT, *BIENTÔT* !",
-      "Tu peux commencer à discrètement ranger tes affaires.",
-      "Tes chaussures sont bien lassées ?"
-    ]
+    "texts": [{
+      "response": "On y est presque, courage !",
+      "gif": ""
+    },{
+      "response": "Bientôt, BIENTÔT, BIENTÔT !",
+      "gif": ""
+    },{
+      "response": "Tu peux commencer à discrètement ranger tes affaires.",
+      "gif": ""
+    },{
+      "response": "Tes chaussures sont bien lassées ?",
+      "gif": ""
+    }]
   },
   {
     "start": "180000",
     "end": "235959",
-    "texts": [
-      "GOGOGOGOGOGOGO",
-      "C'est fini, rentre chez toi."
-    ]
+    "texts": [{
+      "response": "GOGOGOGOGOGOGO",
+      "gif": "13TvMGRNYxrFEQ"
+    },{
+      "response": "C'est fini, rentre chez toi.",
+      "gif": "13TvMGRNYxrFEQ"
+    }]
   }
 ]

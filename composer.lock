@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a1b74e30dfb6b0f934fdf5b47119555a",
+    "content-hash": "6608404724e37d9cf5012046f99e2c0a",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.89.1",
+            "version": "3.90.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "9b085dff6b07eac417caef8cb6d26b471cde9a23"
+                "reference": "12ba8071bcc3d79cbfbf8cca77f59f146816b17a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9b085dff6b07eac417caef8cb6d26b471cde9a23",
-                "reference": "9b085dff6b07eac417caef8cb6d26b471cde9a23",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/12ba8071bcc3d79cbfbf8cca77f59f146816b17a",
+                "reference": "12ba8071bcc3d79cbfbf8cca77f59f146816b17a",
                 "shasum": ""
             },
             "require": {
@@ -86,7 +86,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2019-03-08T19:15:34+00:00"
+            "time": "2019-03-14T18:32:41+00:00"
         },
         {
             "name": "aws/aws-sdk-php-symfony",
@@ -739,16 +739,16 @@
         },
         {
             "name": "mnapoli/bref",
-            "version": "0.3.5",
+            "version": "0.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mnapoli/bref.git",
-                "reference": "a22adc8002ac34c2573c1ee070961f6a8fea6f6a"
+                "reference": "08cbe875ae5d4e06c7c9c01de0e90aaaea6d2bd8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mnapoli/bref/zipball/a22adc8002ac34c2573c1ee070961f6a8fea6f6a",
-                "reference": "a22adc8002ac34c2573c1ee070961f6a8fea6f6a",
+                "url": "https://api.github.com/repos/mnapoli/bref/zipball/08cbe875ae5d4e06c7c9c01de0e90aaaea6d2bd8",
+                "reference": "08cbe875ae5d4e06c7c9c01de0e90aaaea6d2bd8",
                 "shasum": ""
             },
             "require": {
@@ -795,7 +795,7 @@
                 "lambda",
                 "serverless"
             ],
-            "time": "2019-03-07T17:12:16+00:00"
+            "time": "2019-03-16T11:02:31+00:00"
         },
         {
             "name": "mnapoli/silly",
@@ -2635,16 +2635,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v2.6.2",
+            "version": "v2.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "7d7342c8a4059fefb9b8d07db0cc14007021f9b7"
+                "reference": "70c59531da43afe598c66135e39cac39475a2f51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/7d7342c8a4059fefb9b8d07db0cc14007021f9b7",
-                "reference": "7d7342c8a4059fefb9b8d07db0cc14007021f9b7",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/70c59531da43afe598c66135e39cac39475a2f51",
+                "reference": "70c59531da43afe598c66135e39cac39475a2f51",
                 "shasum": ""
             },
             "require": {
@@ -2660,7 +2660,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.6-dev"
+                    "dev-master": "2.7-dev"
                 }
             },
             "autoload": {
@@ -2698,7 +2698,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2019-01-14T15:00:48+00:00"
+            "time": "2019-03-12T18:48:26+00:00"
         }
     ],
     "packages-dev": [],
