@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Aws\S3\S3Client;
+use rfreebern\Giphy;
 
 class DictionnaryService
 {
@@ -23,7 +24,7 @@ class DictionnaryService
         $this->json = json_decode($result['Body']->getContents());
     }
 
-    public function getWord(): string
+    public function getWord(): array
     {
         $datetime = new \DateTime();
         $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
@@ -32,7 +33,12 @@ class DictionnaryService
         $words = $this->getWords($currenttime);
         $key = array_rand($words);
 
-        return $words[$key];
+        $word = [
+            'response' => $words[$key]->response,
+            'gif' => $words[$key]->gif
+        ];
+
+        return $word;
     }
 
     private function getWords(int $currenttime): array {
