@@ -18,7 +18,8 @@
         <style>
             body {
                 text-align:center;
-                padding-top: 100px
+                padding-top: 100px;
+                margin-left: 10px;
             }
             h1 {
                 font-family: 'Roboto', sans-serif;
@@ -26,7 +27,7 @@
                 word-wrap: break-word;
             }
             img {
-                width: 100%;
+                max-width: 100%;
                 height: auto;
             }
             footer {
@@ -40,6 +41,19 @@
             }
             footer a:hover {
                 color: rgba(0, 0, 0, 0.3);
+            }
+
+            @media (prefers-color-scheme: dark) {
+                body {
+                    color: #ddd;
+                    background-color: #222;
+                }
+                footer a {
+                    color: rgba(255, 255, 255, 0.1);
+                }
+                footer a:hover {
+                    color: rgba(255, 255, 255, 0.3);
+                }
             }
         </style>
     </head>
