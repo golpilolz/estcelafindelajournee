@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Service\DictionnaryService;
+use App\Service\GifsService;
 use Aws\S3\S3Client;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -11,7 +12,6 @@ class DefaultController extends AbstractController
 {
     /** @var  DictionnaryService */
     private $dictionnaryService;
-
 
     public function __construct(DictionnaryService $dictionnaryService)
     {
@@ -28,12 +28,12 @@ class DefaultController extends AbstractController
         ]);
     }
 
-    public function api() {
+    public function api(GifsService $gifsService) {
         $word = $this->dictionnaryService->getWord();
 
         return new JsonResponse([
             'word' => $word['response'],
-            'gif' => $word['gif']
+            'gif' => $gifsService->getUrlFromKey($word['gif'])
         ]);
     }
 }
