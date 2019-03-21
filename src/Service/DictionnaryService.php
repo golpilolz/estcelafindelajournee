@@ -18,7 +18,7 @@ class DictionnaryService
 
         $result = $this->s3client->getObject([
             'Bucket' => 'estcelafindelajournee',
-            'Key' => 'dictionnary.json',
+            'Key' => 'dictionary.json',
             'Body'   => 'this is the body!',
         ]);
         $this->json = json_decode($result['Body']->getContents());
