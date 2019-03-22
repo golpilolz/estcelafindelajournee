@@ -17,7 +17,14 @@ install:
   - pip install --user aws-sam-cli
 
 script:
-  - echo "deploy"
+  - php bin/phpunit
+
+before_deploy:
+  - rm -rf vendor/
+  - rm -rf bin/.phpunit
+  - rm -rf bin/phpunit
+  - rm -rf var/*
+  - composer install --no-interaction --no-dev
 
 deploy:
   provider: script
