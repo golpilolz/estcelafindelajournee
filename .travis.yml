@@ -18,6 +18,7 @@ install:
 
 script:
   - php bin/phpunit
+  - vendor/bin/phpstan analyse -l max -c phpstan.neon src --no-interaction --no-progress
 
 before_deploy:
   - rm -rf vendor/
