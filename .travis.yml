@@ -12,9 +12,12 @@ before_install:
   - composer self-update
 
 install:
-  - composer install --no-interaction --dev
   - pip install --user awscli
   - pip install --user aws-sam-cli
+
+before_script:
+  - composer install --no-interaction --dev
+  - php bin/console cache:warmup
 
 script:
   - php bin/phpunit
