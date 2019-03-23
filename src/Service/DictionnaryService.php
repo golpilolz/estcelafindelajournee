@@ -3,7 +3,6 @@
 namespace App\Service;
 
 use Aws\S3\S3Client;
-use rfreebern\Giphy;
 
 class DictionnaryService
 {
