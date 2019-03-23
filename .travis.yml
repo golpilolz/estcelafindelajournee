@@ -17,11 +17,20 @@ install:
   - pip install --user aws-sam-cli
 
 script:
-  - echo "deploy"
+  - php bin/phpunit
+
+before_deploy:
+  - rm -rf vendor/
+  - rm -rf bin/.phpunit
+  - rm -rf bin/phpunit
+  - rm -rf var/*
+  - composer install --no-interaction --no-dev
+  - php bin/console cache:warmup --env=prod
+  - envsubst < .env.travis > .env
 
 deploy:
   provider: script
-  script: envsubst < .env.travis > .env && sam package --output-template-file .stack.yaml --s3-bucket estcelafindelajournee --region us-east-1 && sam deploy --template-file .stack.yaml --capabilities CAPABILITY_IAM --stack-name estcelafindelajournee --region us-east-1
+  script: sam package --output-template-file .stack.yaml --s3-bucket estcelafindelajournee --region us-east-1 && sam deploy --template-file .stack.yaml --capabilities CAPABILITY_IAM --stack-name estcelafindelajournee --region us-east-1
   skip_cleanup: true
   on:
     tags: true
