@@ -2,4 +2,4 @@ includes:
 	- vendor/phpstan/phpstan-symfony/extension.neon
 parameters:
 	symfony:
-		container_xml_path: '%rootDir%/../../../var/cache/dev/srcApp_KernelDevDebugContainer.xml'
+		container_xml_path: '%rootDir%/../../../var/cache/prod/srcApp_KernelDevDebugContainer.xml'

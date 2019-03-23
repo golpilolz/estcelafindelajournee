@@ -18,7 +18,7 @@ install:
 before_script:
   - composer install --no-interaction --dev
   - envsubst < .env.travis > .env
-  - php bin/console cache:warmup
+  - php bin/console cache:warmup --env=prod
 
 script:
   - php bin/phpunit
