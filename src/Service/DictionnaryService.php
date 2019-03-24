@@ -29,7 +29,7 @@ class DictionnaryService
         $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
         $currenttime = $datetime->format('Gis');
 
-        $words = $this->getWords($currenttime);
+        $words = $this->getWords(intval($currenttime));
         $key = array_rand($words);
 
         $word = [

@@ -12,14 +12,19 @@ before_install:
   - composer self-update
 
 install:
-  - composer install --no-interaction --dev
   - pip install --user awscli
   - pip install --user aws-sam-cli
 
+before_script:
+  - composer install --no-interaction --dev
+  - envsubst < .env.travis > .env
+
 script:
   - php bin/phpunit
+  - vendor/bin/phpstan analyse -l max -c phpstan.neon src --no-interaction --no-progress
 
 before_deploy:
+  - rm -rf .env
   - rm -rf vendor/
   - rm -rf bin/.phpunit
   - rm -rf bin/phpunit
