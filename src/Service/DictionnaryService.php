@@ -29,7 +29,7 @@ class DictionnaryService
         $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
         $currenttime = $datetime->format('Gis');
 
-        $words = $this->getWords(intval($currenttime));
+        $words = $this->getWords((int) $currenttime);
         $key = array_rand($words);
 
         $word = [
@@ -42,7 +42,7 @@ class DictionnaryService
 
     private function getWords(int $currenttime): array {
         foreach ($this->json as $item) {
-            if(intval($item->start) <= $currenttime and intval($item->end) > $currenttime) {
+            if((int) $item->start <= $currenttime and (int) $item->end > $currenttime) {
                 return $item->texts;
             }
         }
