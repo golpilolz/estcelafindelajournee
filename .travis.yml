@@ -8,12 +8,8 @@ env:
   global:
   - AWS_DEFAULT_REGION=us-east-1
 
-before_install:
-  - composer self-update
-
 install:
-  - pip install --user awscli
-  - pip install --user aws-sam-cli
+  - composer self-update
 
 before_script:
   - composer install --no-interaction --dev
@@ -24,6 +20,8 @@ script:
   - vendor/bin/phpstan analyse -l max -c phpstan.neon src --no-interaction --no-progress
 
 before_deploy:
+  - pip install --user awscli
+  - pip install --user aws-sam-cli
   - rm -rf .env
   - rm -rf vendor/
   - rm -rf bin/.phpunit
