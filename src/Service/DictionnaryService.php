@@ -2,25 +2,13 @@
 
 namespace App\Service;
 
-use Aws\S3\S3Client;
-
 class DictionnaryService
 {
-    /** @var S3Client */
-    private $s3client;
-
     private $json;
 
-    public function __construct(S3Client $s3Client)
+    public function __construct()
     {
-        $this->s3client = $s3Client;
-
-        $result = $this->s3client->getObject([
-            'Bucket' => 'estcelafindelajournee',
-            'Key' => 'dictionary.json',
-            'Body'   => 'this is the body!',
-        ]);
-        $this->json = json_decode($result['Body']->getContents());
+        $this->json = json_decode($this->loadDictionary());
     }
 
     public function getWord(): array
@@ -47,5 +35,9 @@ class DictionnaryService
             }
         }
         return [];
+    }
+
+    private function loadDictionary(): string {
+        return file_get_contents(__DIR__ . '/../../dictionary.json');
     }
 }
