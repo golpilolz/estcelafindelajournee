@@ -2,25 +2,20 @@
 
 namespace App\Service;
 
-use Aws\S3\S3Client;
+use Psr\Log\LoggerInterface;
 
 class DictionnaryService
 {
-    /** @var S3Client */
-    private $s3client;
-
     private $json;
 
-    public function __construct(S3Client $s3Client)
-    {
-        $this->s3client = $s3Client;
+    /** @var LoggerInterface */
+    private $logger;
 
-        $result = $this->s3client->getObject([
-            'Bucket' => 'estcelafindelajournee',
-            'Key' => 'dictionary.json',
-            'Body'   => 'this is the body!',
-        ]);
-        $this->json = json_decode($result['Body']->getContents());
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->json = json_decode($this->loadDictionary());
+
+        $this->logger = $logger;
     }
 
     public function getWord(): array
@@ -29,15 +24,27 @@ class DictionnaryService
         $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
         $currenttime = $datetime->format('Gis');
 
+        if ($datetime->format('n') === "4" and $datetime->format('j') === "1") {
+
+            try {
+                if(random_int(0,1)) {
+                    return [
+                        'response' => "Oui",
+                        'gif' => "YtWWzfyXXeI5W"
+                    ];
+                }
+            } catch (\Exception $e) {
+                $this->logger->error($e->getMessage());
+            }
+        }
+
         $words = $this->getWords((int) $currenttime);
         $key = array_rand($words);
 
-        $word = [
+        return [
             'response' => $words[$key]->response,
             'gif' => $words[$key]->gif
         ];
-
-        return $word;
     }
 
     private function getWords(int $currenttime): array {
@@ -47,5 +54,20 @@ class DictionnaryService
             }
         }
         return [];
+    }
+
+    private function loadDictionary(): string {
+        $json = file_get_contents(__DIR__ . '/../../dictionary.json');
+        if($json) {
+            return $json;
+        }
+        return '[{
+            "start": "000000",
+            "end": "235959",
+            "texts": [{
+                "response": "Erreur de chargement du dictionnaire.",
+                "gif": "dlMIwDQAxXn1K"
+            }]
+        }]';
     }
 }
