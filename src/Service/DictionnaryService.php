@@ -40,7 +40,7 @@ class DictionnaryService
 
         $words = $this->getWords((int) $currenttime);
         $key = array_rand($words);
-        
+
         return [
             'response' => $words[$key]->response,
             'gif' => $words[$key]->gif
@@ -57,6 +57,17 @@ class DictionnaryService
     }
 
     private function loadDictionary(): string {
-        return file_get_contents(__DIR__ . '/../../dictionary.json');
+        $json = file_get_contents(__DIR__ . '/../../dictionary.json');
+        if($json) {
+            return $json;
+        }
+        return '[{
+            "start": "000000",
+            "end": "235959",
+            "texts": [{
+                "response": "Erreur de chargement du dictionnaire.",
+                "gif": "dlMIwDQAxXn1K"
+            }]
+        }]';
     }
 }
