@@ -63,7 +63,7 @@
     "require-dev": {
         "phpstan/phpstan": "^0.11.4",
         "phpstan/phpstan-symfony": "^0.11.2",
-        "symfony/browser-kit": "4.2.*",
+        "symfony/browser-kit": "4.3.*",
         "symfony/phpunit-bridge": "4.2.*"
     }
 }
