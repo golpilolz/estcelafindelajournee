@@ -1,18 +1,18 @@
 {
-    "aws/aws-sdk-php": {
-        "version": "3.87.20"
+    "async-aws/cloud-formation": {
+        "version": "1.0.0"
+    },
+    "async-aws/core": {
+        "version": "1.6.0"
+    },
+    "async-aws/lambda": {
+        "version": "1.1.0"
+    },
+    "bref/bref": {
+        "version": "0.5.31"
     },
     "composer/xdebug-handler": {
         "version": "1.3.2"
-    },
-    "guzzlehttp/guzzle": {
-        "version": "6.3.3"
-    },
-    "guzzlehttp/promises": {
-        "version": "v1.3.1"
-    },
-    "guzzlehttp/psr7": {
-        "version": "1.5.2"
     },
     "hoa/consistency": {
         "version": "1.17.05.02"
@@ -35,20 +35,17 @@
     "hoa/stream": {
         "version": "1.17.02.21"
     },
+    "hollodotme/fast-cgi-client": {
+        "version": "v3.1.3"
+    },
     "jean85/pretty-package-versions": {
         "version": "1.2"
     },
-    "mnapoli/bref": {
-        "version": "0.3.4"
-    },
     "mnapoli/silly": {
-        "version": "1.7.1"
+        "version": "1.7.2"
     },
     "monolog/monolog": {
         "version": "1.24.0"
-    },
-    "mtdowling/jmespath.php": {
-        "version": "2.4.0"
     },
     "nette/bootstrap": {
         "version": "v2.4.6"
@@ -68,11 +65,26 @@
     "nette/robot-loader": {
         "version": "v3.1.1"
     },
+    "nette/schema": {
+        "version": "v1.0.1"
+    },
     "nette/utils": {
         "version": "v2.5.3"
     },
     "nikic/php-parser": {
         "version": "v4.2.1"
+    },
+    "nyholm/psr7": {
+        "version": "1.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "1.0",
+            "ref": "7c0a9352a57376f04f5444e74565102c3a23d0c7"
+        },
+        "files": [
+            "config/packages/nyholm_psr7.yaml"
+        ]
     },
     "ocramius/package-versions": {
         "version": "1.4.0"
@@ -81,7 +93,10 @@
         "version": "7.4"
     },
     "php-di/invoker": {
-        "version": "2.0.0"
+        "version": "2.2.0"
+    },
+    "php-http/message-factory": {
+        "version": "v1.0.2"
     },
     "phpstan/phpdoc-parser": {
         "version": "0.3.1"
@@ -98,7 +113,13 @@
     "psr/container": {
         "version": "1.0.0"
     },
+    "psr/http-factory": {
+        "version": "1.0.1"
+    },
     "psr/http-message": {
+        "version": "1.0.1"
+    },
+    "psr/http-server-handler": {
         "version": "1.0.1"
     },
     "psr/log": {
@@ -107,8 +128,8 @@
     "psr/simple-cache": {
         "version": "1.0.1"
     },
-    "ralouphie/getallheaders": {
-        "version": "2.0.5"
+    "riverline/multipart-parser": {
+        "version": "2.0.8"
     },
     "symfony/browser-kit": {
         "version": "v4.2.4"
@@ -143,6 +164,9 @@
     },
     "symfony/dependency-injection": {
         "version": "v4.2.3"
+    },
+    "symfony/deprecation-contracts": {
+        "version": "v2.2.0"
     },
     "symfony/dom-crawler": {
         "version": "v4.2.4"
@@ -193,11 +217,20 @@
             "./src/Kernel.php"
         ]
     },
+    "symfony/http-client": {
+        "version": "v5.1.7"
+    },
+    "symfony/http-client-contracts": {
+        "version": "v2.3.1"
+    },
     "symfony/http-foundation": {
         "version": "v4.2.3"
     },
     "symfony/http-kernel": {
         "version": "v4.2.3"
+    },
+    "symfony/mime": {
+        "version": "v4.3.1"
     },
     "symfony/monolog-bridge": {
         "version": "v4.2.4"
@@ -232,8 +265,14 @@
             "tests/.gitignore"
         ]
     },
+    "symfony/polyfill-intl-idn": {
+        "version": "v1.11.0"
+    },
     "symfony/polyfill-mbstring": {
         "version": "v1.10.0"
+    },
+    "symfony/polyfill-php72": {
+        "version": "v1.11.0"
     },
     "symfony/polyfill-php73": {
         "version": "v1.18.1"
@@ -242,7 +281,7 @@
         "version": "v1.18.1"
     },
     "symfony/process": {
-        "version": "v4.2.3"
+        "version": "v4.2.12"
     },
     "symfony/routing": {
         "version": "4.2",
