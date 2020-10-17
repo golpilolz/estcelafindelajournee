@@ -17,8 +17,8 @@ before_script:
   - envsubst < .env.travis > .env
 
 script:
-  - php bin/phpunit
-  - vendor/bin/phpstan analyse -l 1 -c phpstan.neon src --no-interaction --no-progress
+  - ls var/cache/test
+  - vendor/bin/phpstan analyse -l max -c phpstan.neon src --no-interaction --no-progress
 
 before_deploy:
   - npm install -g serverless
