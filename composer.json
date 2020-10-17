@@ -11,7 +11,7 @@
         "symfony/dotenv": "5.1.*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "4.2.*",
-        "symfony/monolog-bundle": "^3.3",
+        "symfony/monolog-bundle": "3.6.*",
         "symfony/twig-bundle": "4.2.*",
         "symfony/yaml": "4.3.*"
     },
@@ -61,8 +61,8 @@
         }
     },
     "require-dev": {
-        "phpstan/phpstan": "^0.11.4",
-        "phpstan/phpstan-symfony": "^0.11.2",
+        "phpstan/phpstan": "^0.12",
+        "phpstan/phpstan-symfony": "^0.12",
         "symfony/browser-kit": "4.2.*",
         "symfony/phpunit-bridge": "4.2.*"
     }
