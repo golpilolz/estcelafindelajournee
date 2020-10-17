@@ -1,42 +1,38 @@
-matrix:
-  include:
-    - language: php
-      php:
-        - 7.4
+language: php
 
-      install:
-        - composer self-update
+php:
+  - 7.4
 
-      before_script:
-        - composer install --no-interaction --dev
-        - envsubst < .env.travis > .env
+env:
+  - NODE_RELEASE=12.x
 
-      script:
-        - php bin/phpunit
-        - vendor/bin/phpstan analyse -l 1 -c phpstan.neon src --no-interaction --no-progress
+install:
+  - composer self-update
 
-      deploy:
-        provider: script
-        script:
-          - rm -rf .env
-          - rm -rf vendor/
-          - rm -rf bin/.phpunit
-          - rm -rf bin/phpunit
-          - rm -rf var/*
-          - composer install --no-interaction --no-dev
-          - php bin/console cache:warmup --env=prod
-          - envsubst < .env.travis > .env
-        on:
-          branch: master
+before_script:
+  - composer install --no-interaction --dev
+  - envsubst < .env.travis > .env
 
-    - language: node.js
-      node_js: "12.0"
+script:
+  - php bin/phpunit
+  - vendor/bin/phpstan analyse -l 1 -c phpstan.neon src --no-interaction --no-progress
 
-      install:
-        - npm install -g serverless
-      deploy:
-        provider: script
-        script: serverless deploy
-        skip_cleanup: true
-        on:
-          branch: master
+before_deploy:
+  - sudo rm -rf ~/.nvm - curl -sL "https://deb.nodesource.com/setup_${NODE_RELEASE}" | sudo -E bash -
+  - sudo apt-get install -y nodejs
+  - npm install -g serverless
+  - rm -rf .env
+  - rm -rf vendor/
+  - rm -rf bin/.phpunit
+  - rm -rf bin/phpunit
+  - rm -rf var/*
+  - composer install --no-interaction --no-dev
+  - php bin/console cache:warmup --env=prod
+  - envsubst < .env.travis > .env
+
+deploy:
+  provider: script
+  script: serverless deploy
+  skip_cleanup: true
+  on:
+    branch: master
