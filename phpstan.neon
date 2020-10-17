@@ -3,4 +3,4 @@ includes:
 parameters:
     tipsOfTheDay: false
     symfony:
-        container_xml_path: '%rootDir%/../../../var/cache/dev/App_KernelDevDebugContainer.xml'
+        container_xml_path: '%rootDir%/../../../var/cache/test/App_KernelDevDebugContainer.xml'
