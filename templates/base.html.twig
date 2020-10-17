@@ -15,10 +15,9 @@
 
   {% block stylesheets %}{% endblock %}
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/brands.css"
-        integrity="sha384-BKw0P+CQz9xmby+uplDwp82Py8x1xtYPK3ORn/ZSoe6Dk3ETP59WCDnX+fI1XCKK" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/fontawesome.css"
-        integrity="sha384-4aon80D8rXCGx9ayDt85LbyUHeMWd3UiBaWliBlJ53yzm9hqN21A+o1pqoyK04h+" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous"/>
   <style>
     body {
       text-align: center;
@@ -47,6 +46,7 @@
 
     footer a {
       color: rgba(0, 0, 0, 0.1);
+      text-decoration: none;
     }
 
     footer a:hover {
@@ -74,7 +74,10 @@
 {% block javascripts %}{% endblock %}
 </body>
 <footer>
-  <a href="https://github.com/golpilolz/estcelafindelajournee" target="_blank">
+  <a href="{{ path('api') }}" title="Open JSON version" target="_blank">
+    <i class="fas fa-code"></i>
+  </a>
+  <a href="https://github.com/golpilolz/estcelafindelajournee" title="Open Github repo" target="_blank">
     <i class="fab fa-github"></i>
   </a>
 </footer>
