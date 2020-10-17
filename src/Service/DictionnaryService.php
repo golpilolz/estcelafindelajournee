@@ -3,7 +3,6 @@
 namespace App\Service;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Config\FileLocator;
 
 class DictionnaryService {
   private $json;
@@ -44,9 +43,9 @@ class DictionnaryService {
     ];
   }
 
-  private function getWords(int $currenttime): array {
+  private function getWords(int $currentTime): array {
     foreach ($this->json as $item) {
-      if ((int)$item->start <= $currenttime and (int)$item->end > $currenttime) {
+      if ((int)$item->start <= $currentTime and (int)$item->end > $currentTime) {
         return $item->texts;
       }
     }
@@ -54,8 +53,7 @@ class DictionnaryService {
   }
 
   private function loadDictionary(): string {
-    $fileLocator = new FileLocator(__DIR__ . '/../..');
-    $jsonFile = file_get_contents($fileLocator->locate('dictionary.json'));
+    $jsonFile = file_get_contents(__DIR__ . '/../../dictionary.json');
 
     if ($jsonFile) {
       return $jsonFile;
