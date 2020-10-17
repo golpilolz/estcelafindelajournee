@@ -4,64 +4,60 @@ namespace App\Service;
 
 use Psr\Log\LoggerInterface;
 
-class DictionnaryService
-{
-    private $json;
+class DictionnaryService {
+  private $json;
 
-    /** @var LoggerInterface */
-    private $logger;
+  /** @var LoggerInterface */
+  private LoggerInterface $logger;
 
-    public function __construct(LoggerInterface $logger)
-    {
-        $this->json = json_decode($this->loadDictionary());
+  public function __construct(LoggerInterface $logger) {
+    $this->json = json_decode($this->loadDictionary());
+    $this->logger = $logger;
+  }
 
-        $this->logger = $logger;
+  public function getWord(): array {
+    $datetime = new \DateTime();
+    $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
+    $currentTime = $datetime->format('Gis');
+
+    if ($datetime->format('n') === "4" and $datetime->format('j') === "1") {
+
+      try {
+        if (random_int(0, 1)) {
+          return [
+            'response' => "Oui",
+            'gif' => "YtWWzfyXXeI5W"
+          ];
+        }
+      } catch (\Exception $e) {
+        $this->logger->error($e->getMessage());
+      }
     }
 
-    public function getWord(): array
-    {
-        $datetime = new \DateTime();
-        $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
-        $currenttime = $datetime->format('Gis');
+    $words = $this->getWords((int)$currentTime);
+    $key = array_rand($words);
 
-        if ($datetime->format('n') === "4" and $datetime->format('j') === "1") {
+    return [
+      'response' => $words[$key]->response,
+      'gif' => $words[$key]->gif
+    ];
+  }
 
-            try {
-                if(random_int(0,1)) {
-                    return [
-                        'response' => "Oui",
-                        'gif' => "YtWWzfyXXeI5W"
-                    ];
-                }
-            } catch (\Exception $e) {
-                $this->logger->error($e->getMessage());
-            }
-        }
-
-        $words = $this->getWords((int) $currenttime);
-        $key = array_rand($words);
-
-        return [
-            'response' => $words[$key]->response,
-            'gif' => $words[$key]->gif
-        ];
+  private function getWords(int $currenttime): array {
+    foreach ($this->json as $item) {
+      if ((int)$item->start <= $currenttime and (int)$item->end > $currenttime) {
+        return $item->texts;
+      }
     }
+    return [];
+  }
 
-    private function getWords(int $currenttime): array {
-        foreach ($this->json as $item) {
-            if((int) $item->start <= $currenttime and (int) $item->end > $currenttime) {
-                return $item->texts;
-            }
-        }
-        return [];
+  private function loadDictionary(): string {
+    $jsonFile = file_get_contents(__DIR__ . '/../../dictionary.json');
+    if ($jsonFile) {
+      return $jsonFile;
     }
-
-    private function loadDictionary(): string {
-        $json = file_get_contents(__DIR__ . '/../../dictionary.json');
-        if($json) {
-            return $json;
-        }
-        return '[{
+    return '[{
             "start": "000000",
             "end": "235959",
             "texts": [{
@@ -69,5 +65,5 @@ class DictionnaryService
                 "gif": "dlMIwDQAxXn1K"
             }]
         }]';
-    }
+  }
 }
