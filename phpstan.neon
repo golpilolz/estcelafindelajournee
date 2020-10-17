@@ -2,5 +2,6 @@ includes:
 	- vendor/phpstan/phpstan-symfony/extension.neon
 parameters:
     tipsOfTheDay: false
+    checkMissingIterableValueType: false
     symfony:
         container_xml_path: '%rootDir%/../../../var/cache/test/App_KernelTestDebugContainer.xml'
