@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Config\FileLocator;
 
 class DictionnaryService {
   private $json;
@@ -53,7 +54,9 @@ class DictionnaryService {
   }
 
   private function loadDictionary(): string {
-    $jsonFile = file_get_contents(__DIR__ . '/../../dictionary.json');
+    $fileLocator = new FileLocator(__DIR__ . '/../..');
+    $jsonFile = file_get_contents($fileLocator->locate('dictionary.json'));
+
     if ($jsonFile) {
       return $jsonFile;
     }
