@@ -7,22 +7,20 @@ use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
 class AppExtension extends AbstractExtension {
-    /** @var GifsService */
-    private $gifsService;
+  /** @var GifsService */
+  private GifsService $gifsService;
 
-    public function __construct(GifsService $gifsService)
-    {
-        $this->gifsService = $gifsService;
-    }
+  public function __construct(GifsService $gifsService) {
+    $this->gifsService = $gifsService;
+  }
 
-    public function getFilters()
-    {
-        return [
-            new TwigFilter('giphy', [$this, 'giphy']),
-        ];
-    }
+  public function getFilters(): array {
+    return [
+      new TwigFilter('giphy', [$this, 'giphy']),
+    ];
+  }
 
-    public function giphy($key) {
-        return $this->gifsService->getUrlFromKey($key);
-    }
+  public function giphy($key): string {
+    return $this->gifsService->getUrlFromKey($key);
+  }
 }

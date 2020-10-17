@@ -9,60 +9,54 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
 
-class Kernel extends BaseKernel
-{
-    use MicroKernelTrait;
+class Kernel extends BaseKernel {
+  use MicroKernelTrait;
 
-    private const CONFIG_EXTS = '.{php,xml,yaml,yml}';
+  private const CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
-    public function registerBundles(): iterable
-    {
-        $contents = require $this->getProjectDir() . '/config/bundles.php';
-        foreach ($contents as $class => $envs) {
-            if ($envs[$this->environment] ?? $envs['all'] ?? false) {
-                yield new $class();
-            }
-        }
+  public function registerBundles(): iterable {
+    $contents = require $this->getProjectDir() . '/config/bundles.php';
+    foreach ($contents as $class => $envs) {
+      if ($envs[$this->environment] ?? $envs['all'] ?? false) {
+        yield new $class();
+      }
+    }
+  }
+
+  protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void {
+    $container->addResource(new FileResource($this->getProjectDir() . '/config/bundles.php'));
+    $container->setParameter('container.dumper.inline_class_loader', true);
+    $confDir = $this->getProjectDir() . '/config';
+
+    $loader->load($confDir . '/{packages}/*' . self::CONFIG_EXTS, 'glob');
+    $loader->load($confDir . '/{packages}/' . $this->environment . '/**/*' . self::CONFIG_EXTS, 'glob');
+    $loader->load($confDir . '/{services}' . self::CONFIG_EXTS, 'glob');
+    $loader->load($confDir . '/{services}_' . $this->environment . self::CONFIG_EXTS, 'glob');
+  }
+
+  protected function configureRoutes(RouteCollectionBuilder $routes): void {
+    $confDir = $this->getProjectDir() . '/config';
+
+    $routes->import($confDir . '/{routes}/' . $this->environment . '/**/*' . self::CONFIG_EXTS, '/', 'glob');
+    $routes->import($confDir . '/{routes}/*' . self::CONFIG_EXTS, '/', 'glob');
+    $routes->import($confDir . '/{routes}' . self::CONFIG_EXTS, '/', 'glob');
+  }
+
+  public function getLogDir() {
+    // When on the lambda only /tmp is writeable
+    if (isset($_SERVER['LAMBDA_TASK_ROOT'])) {
+      return '/tmp/log/';
     }
 
-    protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader): void
-    {
-        $container->addResource(new FileResource($this->getProjectDir() . '/config/bundles.php'));
-        $container->setParameter('container.dumper.inline_class_loader', true);
-        $confDir = $this->getProjectDir() . '/config';
+    return parent::getLogDir();
+  }
 
-        $loader->load($confDir . '/{packages}/*' . self::CONFIG_EXTS, 'glob');
-        $loader->load($confDir . '/{packages}/' . $this->environment . '/**/*' . self::CONFIG_EXTS, 'glob');
-        $loader->load($confDir . '/{services}' . self::CONFIG_EXTS, 'glob');
-        $loader->load($confDir . '/{services}_' . $this->environment . self::CONFIG_EXTS, 'glob');
+  public function getCacheDir() {
+    // When on the lambda only /tmp is writeable
+    if (isset($_SERVER['LAMBDA_TASK_ROOT'])) {
+      return '/tmp/cache/'.$this->environment;
     }
 
-    protected function configureRoutes(RouteCollectionBuilder $routes): void
-    {
-        $confDir = $this->getProjectDir() . '/config';
-
-        $routes->import($confDir . '/{routes}/' . $this->environment . '/**/*' . self::CONFIG_EXTS, '/', 'glob');
-        $routes->import($confDir . '/{routes}/*' . self::CONFIG_EXTS, '/', 'glob');
-        $routes->import($confDir . '/{routes}' . self::CONFIG_EXTS, '/', 'glob');
-    }
-
-    public function getLogDir()
-    {
-        // When on the lambda only /tmp is writeable
-        if (getenv('LAMBDA_TASK_ROOT') !== false) {
-            return '/tmp/log/';
-        }
-
-        return $this->getProjectDir() . '/var/log';
-    }
-
-    public function getCacheDir()
-    {
-        // When on the lambda only /tmp is writeable
-        if (getenv('LAMBDA_TASK_ROOT') !== false) {
-            return '/tmp/cache/' . $this->environment;
-        }
-
-        return $this->getProjectDir() . '/var/cache/' . $this->environment;
-    }
+    return parent::getCacheDir();
+  }
 }
