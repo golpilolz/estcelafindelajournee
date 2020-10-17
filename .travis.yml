@@ -17,6 +17,7 @@ before_script:
   - envsubst < .env.travis > .env
 
 script:
+  - php bin/console cache:warmup --env=test
   - ls var/cache/test
   - vendor/bin/phpstan analyse -l max -c phpstan.neon src --no-interaction --no-progress
 
