@@ -4,4 +4,4 @@ parameters:
     tipsOfTheDay: false
     checkMissingIterableValueType: false
     symfony:
-        container_xml_path: '%rootDir%/../../../var/cache/test/App_KernelTestDebugContainer.xml'
+        container_xml_path: 'var/cache/dev/App_KernelDevDebugContainer.xml'

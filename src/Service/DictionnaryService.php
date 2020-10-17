@@ -5,16 +5,21 @@ namespace App\Service;
 use Psr\Log\LoggerInterface;
 
 class DictionnaryService {
-  private $json;
+  private array $json;
 
-  /** @var LoggerInterface */
   private LoggerInterface $logger;
 
   public function __construct(LoggerInterface $logger) {
     $this->json = json_decode($this->loadDictionary());
+    if (!$this->json) {
+      $this->json = [];
+    }
     $this->logger = $logger;
   }
 
+  /**
+   * @return array
+   */
   public function getWord(): array {
     $datetime = new \DateTime();
     $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));

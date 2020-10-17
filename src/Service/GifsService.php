@@ -3,7 +3,7 @@
 namespace App\Service;
 
 class GifsService {
-  public function getUrlFromKey($key): string {
+  public function getUrlFromKey(string $key): string {
     return 'https://media.giphy.com/media/' . $key . '/giphy.gif';
   }
 }
