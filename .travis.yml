@@ -18,7 +18,7 @@ before_script:
 
 script:
   - php bin/console cache:warmup --env=test
-  - ls var/cache/test
+  - php bin/phpunit
   - vendor/bin/phpstan analyse -l max -c phpstan.neon src --no-interaction --no-progress
 
 before_deploy:
