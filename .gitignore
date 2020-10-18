@@ -17,4 +17,5 @@
 .stack.yaml
 .env
 /.serverless/
+/php/
 ###< Project ###
