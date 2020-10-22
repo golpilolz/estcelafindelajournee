@@ -25,21 +25,16 @@ class DictionnaryService {
     $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
     $currentTime = $datetime->format('Gis');
 
-    if ($datetime->format('n') === "4" and $datetime->format('j') === "1") {
-
-      try {
-        if (random_int(0, 1)) {
-          return [
-            'response' => "Oui",
-            'gif' => "YtWWzfyXXeI5W"
-          ];
-        }
-      } catch (\Exception $e) {
-        $this->logger->error($e->getMessage());
+    $allWords = $words = $this->getWords((int)$currentTime);
+    foreach ($words as $key => $word) {
+      if (!$this->isAvailableToday($word)) {
+        unset($words[$key]);
       }
     }
 
-    $words = $this->getWords((int)$currentTime);
+    if (empty($words)) {
+      $words = $allWords;
+    }
     $key = array_rand($words);
 
     return [
@@ -67,9 +62,21 @@ class DictionnaryService {
             "start": "000000",
             "end": "235959",
             "texts": [{
-                "response": "Erreur de chargement du dictionnaire.",
-                "gif": "dlMIwDQAxXn1K"
+              "days" => "MTWTFSS",
+              "response": "Erreur de chargement du dictionnaire.",
+              "gif": "dlMIwDQAxXn1K"
             }]
         }]';
+  }
+
+  private function isAvailableToday(object $word): bool {
+    $now = new \DateTime();
+    $day = substr($now->format('D'), 0, 1);
+    $dayNumber = 1;
+
+    $wordArray = str_split($word->days);
+
+
+    return ($wordArray[intval($now->format('N')) - 1] !== '-');
   }
 }
