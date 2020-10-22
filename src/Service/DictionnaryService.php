@@ -71,12 +71,11 @@ class DictionnaryService {
 
   private function isAvailableToday(object $word): bool {
     $now = new \DateTime();
-    $day = substr($now->format('D'), 0, 1);
-    $dayNumber = 1;
-
     $wordArray = str_split($word->days);
 
+    $day = substr($now->format('D'), 0, 1);
+    $wordDay = $wordArray[intval($now->format('N')) - 1];
 
-    return ($wordArray[intval($now->format('N')) - 1] !== '-');
+    return ($wordDay !== '-' and $wordDay === $day);
   }
 }
