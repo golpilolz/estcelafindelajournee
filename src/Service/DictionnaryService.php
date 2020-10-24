@@ -69,7 +69,7 @@ class DictionnaryService {
         }]';
   }
 
-  private function isAvailableToday(object $word): bool {
+  private function isAvailableToday(\stdClass $word): bool {
     $now = new \DateTime();
     $wordArray = str_split($word->days);
 
