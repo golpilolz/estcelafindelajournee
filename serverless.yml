@@ -3,7 +3,7 @@ service: app
 provider:
     name: aws
     region: eu-west-1
-    runtime: provided
+    runtime: provided.al2
     stage: prod
 
 plugins:
