@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ff07bf4311998102dae6217ffdeb538f",
+    "content-hash": "8db0cef8a8065a615d5015f2b1081121",
     "packages": [
         {
             "name": "async-aws/cloud-formation",
@@ -4181,21 +4181,22 @@
         },
         {
             "name": "symfony/browser-kit",
-            "version": "v5.1.11",
+            "version": "v5.3.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/browser-kit.git",
-                "reference": "8d0688f6f7c733ff4096d64656c8a3b320d9a1f8"
+                "reference": "c1e3f64fcc631c96e2c5843b666db66679ced11c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/8d0688f6f7c733ff4096d64656c8a3b320d9a1f8",
-                "reference": "8d0688f6f7c733ff4096d64656c8a3b320d9a1f8",
+                "url": "https://api.github.com/repos/symfony/browser-kit/zipball/c1e3f64fcc631c96e2c5843b666db66679ced11c",
+                "reference": "c1e3f64fcc631c96e2c5843b666db66679ced11c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.2.5",
-                "symfony/dom-crawler": "^4.4|^5.0"
+                "symfony/dom-crawler": "^4.4|^5.0",
+                "symfony/polyfill-php80": "^1.16"
             },
             "require-dev": {
                 "symfony/css-selector": "^4.4|^5.0",
@@ -4232,7 +4233,7 @@
             "description": "Simulates the behavior of a web browser, allowing you to make requests, click on links and submit forms programmatically",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/browser-kit/tree/v5.1.11"
+                "source": "https://github.com/symfony/browser-kit/tree/v5.3.4"
             },
             "funding": [
                 {
@@ -4248,7 +4249,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-01-27T12:50:07+00:00"
+            "time": "2021-07-21T12:40:44+00:00"
         },
         {
             "name": "symfony/dom-crawler",
