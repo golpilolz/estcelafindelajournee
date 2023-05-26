@@ -7,19 +7,17 @@ use Psr\Log\LoggerInterface;
 class DictionnaryService {
   private array $json;
 
-  private LoggerInterface $logger;
-
-  public function __construct(LoggerInterface $logger) {
-    $this->json = json_decode($this->loadDictionary());
+  public function __construct(private readonly LoggerInterface $logger) {
+    try {
+      $this->json = json_decode($this->loadDictionary(), null, 512, JSON_THROW_ON_ERROR);
+    } catch (\JsonException $e) {
+      $this->logger->error($e->getMessage());
+    }
     if (!$this->json) {
       $this->json = [];
     }
-    $this->logger = $logger;
   }
 
-  /**
-   * @return array
-   */
   public function getWord(): array {
     $datetime = new \DateTime();
     $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
@@ -32,7 +30,7 @@ class DictionnaryService {
       }
     }
 
-    if (empty($words)) {
+    if ($words === []) {
       $words = $allWords;
     }
     $key = array_rand($words);
@@ -45,7 +43,7 @@ class DictionnaryService {
 
   private function getWords(int $currentTime): array {
     foreach ($this->json as $item) {
-      if ((int)$item->start <= $currentTime and (int)$item->end > $currentTime) {
+      if ((int)$item->start <= $currentTime && (int)$item->end > $currentTime) {
         return $item->texts;
       }
     }
@@ -71,11 +69,11 @@ class DictionnaryService {
 
   private function isAvailableToday(\stdClass $word): bool {
     $now = new \DateTime();
-    $wordArray = str_split($word->days);
+    $wordArray = str_split((string) $word->days);
 
     $day = substr($now->format('D'), 0, 1);
-    $wordDay = $wordArray[intval($now->format('N')) - 1];
+    $wordDay = $wordArray[(int) $now->format('N') - 1];
 
-    return ($wordDay !== '-' and $wordDay === $day);
+    return ($wordDay !== '-' && $wordDay === $day);
   }
 }

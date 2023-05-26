@@ -1,12 +1,18 @@
 {
-    "async-aws/core": {
-        "version": "1.6.0"
-    },
-    "async-aws/lambda": {
-        "version": "1.1.0"
-    },
     "bref/bref": {
         "version": "0.5.31"
+    },
+    "bref/symfony-bridge": {
+        "version": "0.2",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "main",
+            "version": "0.1",
+            "ref": "073e577186ef96e4f26df1f8a3dc14a48826d364"
+        },
+        "files": [
+            "serverless.yml"
+        ]
     },
     "hoa/consistency": {
         "version": "1.17.05.02"
@@ -177,9 +183,6 @@
             "./src/Controller/.gitignore",
             "./src/Kernel.php"
         ]
-    },
-    "symfony/http-client": {
-        "version": "v5.1.7"
     },
     "symfony/http-client-contracts": {
         "version": "v2.3.1"

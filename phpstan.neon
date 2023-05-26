@@ -4,4 +4,6 @@ parameters:
     tipsOfTheDay: false
     checkMissingIterableValueType: false
     symfony:
-        container_xml_path: '%rootDir%/../../../var/cache/test/App_KernelTestDebugContainer.xml'
+        containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
+    ignoreErrors:
+            - '/Generator expects value type Symfony\\Component\\HttpKernel\\Bundle\\BundleInterface\, object given\./'
