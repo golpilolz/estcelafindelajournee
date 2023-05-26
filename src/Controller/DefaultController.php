@@ -9,11 +9,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends AbstractController {
-  /** @var  DictionnaryService */
-  private DictionnaryService $dictionnaryService;
-
-  public function __construct(DictionnaryService $dictionnaryService) {
-    $this->dictionnaryService = $dictionnaryService;
+  public function __construct(private readonly DictionnaryService $dictionnaryService)
+  {
   }
 
   public function index(): Response {

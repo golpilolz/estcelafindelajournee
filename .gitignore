@@ -16,6 +16,9 @@
 /.idea/
 .stack.yaml
 .env
-/.serverless/
 /php/
 ###< Project ###
+
+###> bref/symfony-bridge ###
+/.serverless/
+###< bref/symfony-bridge ###
