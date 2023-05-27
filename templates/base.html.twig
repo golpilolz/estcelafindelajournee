@@ -1,84 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>{% block title %}Est-ce la fin de la journee ?{% endblock %}</title>
-  <meta name="description" content="{% block description %}{% endblock %}">
-  <meta property="og:title" content="Est-ce la fin de la journee ?">
-  <meta property="og:description" content="{% block ogdescription %}{% endblock %}">
-  <meta property="og:image" content="{% block ogimage %}{% endblock %}"/>
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://estcelafindelajournee.fr/">
-  <meta property="og:locale" content="fr">
+    <meta charset="UTF-8">
+    <title>{% block title %}Est-ce la fin de la journee ?{% endblock %}</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <meta name="description" content="{% block description %}{% endblock %}">
+    <meta property="og:title" content="Est-ce la fin de la journee ?">
+    <meta property="og:description" content="{% block ogdescription %}{% endblock %}">
+    <meta property="og:image" content="{% block ogimage %}{% endblock %}"/>
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://estcelafindelajournee.fr/">
+    <meta property="og:locale" content="fr">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  {% block stylesheets %}{% endblock %}
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
-        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
-        crossorigin="anonymous"/>
-  <style>
-    body {
-      text-align: center;
-      padding-top: 100px;
-      margin-left: 10px;
-    }
-
-    h1 {
-      font-family: 'Roboto', sans-serif;
-      margin-bottom: 40px;
-      word-wrap: break-word;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      max-height: 60vh;
-    }
-
-    footer {
-      font-size: 30px;
-      position: fixed;
-      bottom: 10px;
-      right: 15px;
-    }
-
-    footer a {
-      color: rgba(0, 0, 0, 0.1);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      color: rgba(0, 0, 0, 0.3);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      body {
-        color: #ddd;
-        background-color: #222;
-      }
-
-      footer a {
-        color: rgba(255, 255, 255, 0.1);
-      }
-
-      footer a:hover {
-        color: rgba(255, 255, 255, 0.3);
-      }
-    }
-  </style>
+    {% block stylesheets %}{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+    <link rel="stylesheet" href="{{ asset('css/base.css') }}">
 </head>
 <body>
 {% block body %}{% endblock %}
 {% block javascripts %}{% endblock %}
 </body>
 <footer>
-  <a href="{{ path('api') }}" title="Open JSON version" target="_blank">
-    <i class="fas fa-code"></i>
-  </a>
-  <a href="https://github.com/golpilolz/estcelafindelajournee" title="Open Github repo" target="_blank">
-    <i class="fab fa-github"></i>
-  </a>
+    <a href="{{ path('api') }}" title="Open JSON version" target="_blank">
+        <i class="fas fa-code"></i>
+    </a>
+    <a href="https://github.com/golpilolz/estcelafindelajournee" title="Open Github repo" target="_blank">
+        <i class="fab fa-github"></i>
+    </a>
 </footer>
 </html>

@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '14.x'
 
-      - name: Setup PHP with PECL extension
+      - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
@@ -32,7 +32,9 @@ jobs:
           rm -rf var/*
 
       - name: Install dependencies
-        run: composer install --prefer-dist --optimize-autoloader --no-dev
+        run: |
+          composer self-update
+          composer install --prefer-dist --optimize-autoloader --no-dev
 
       - name: Warmup cache
         run: php bin/console cache:warmup --env=prod
