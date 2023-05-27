@@ -11,6 +11,7 @@ provider:
 
 plugins:
   - ./vendor/bref/bref
+  - serverless-lift
 
 functions:
   api:
@@ -20,8 +21,21 @@ functions:
     layers:
       - ${bref:layer.php-82-fpm}
     events:
-      - http: 'ANY /'
-      - http: 'ANY /{proxy+}'
+      - httpApi: '*'
+
+constructs:
+  website:
+    type: server-side-website
+    assets:
+      '/bundles/*': public/bundles
+      '/build/*': public/build
+      '/js/*': public/js
+      '/css/*': public/css
+      '/favicon.ico': public/favicon.ico
+      '/robots.txt': public/robots.txt
+    domain: estcelafindelajournee.fr
+    certificate: <your certificate ARN>
+
 # Exclude files from deployment
 package:
   exclude:
