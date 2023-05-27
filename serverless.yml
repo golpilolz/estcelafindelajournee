@@ -11,7 +11,6 @@ provider:
 
 plugins:
   - ./vendor/bref/bref
-  - serverless-lift
 
 functions:
   api:
@@ -23,19 +22,6 @@ functions:
     events:
       - http: 'ANY /'
       - http: 'ANY /{proxy+}'
-
-constructs:
-  website:
-    type: server-side-website
-    assets:
-      '/bundles/*': public/bundles
-      '/css/*': public/css
-      '/favicon.ico': public/favicon.ico
-      '/robots.txt': public/robots.txt
-      '/sitemap.xml': public/sitemap.xml
-    domain: estcelafindelajournee.fr
-    certificate: ${ssm:/estcelafindelajournee/certificatearn}
-
 # Exclude files from deployment
 package:
   exclude:

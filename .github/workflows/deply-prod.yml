@@ -40,9 +40,7 @@ jobs:
         run: php bin/console cache:warmup --env=prod
 
       - name: install serverless
-        run: |
-          npm install -g serverless
-          npm install
+        run: npm install -g serverless
 
       - name: Deploy to AWS
         run: serverless deploy
