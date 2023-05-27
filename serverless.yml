@@ -34,7 +34,7 @@ constructs:
       '/favicon.ico': public/favicon.ico
       '/robots.txt': public/robots.txt
     domain: estcelafindelajournee.fr
-    certificate: <your certificate ARN>
+    certificate: ${ssm:/estcelafindelajournee/certificatearn}
 
 # Exclude files from deployment
 package:
