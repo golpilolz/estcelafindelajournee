@@ -32,7 +32,13 @@ jobs:
           rm -rf var/*
 
       - name: Install dependencies
-        run: composer install --no-interaction --no-dev
+        run: composer install --prefer-dist --optimize-autoloader --no-dev
+
+      - name: Warmup cache
+        run: php bin/console cache:warmup --env=prod
+
+      - name: install serverless
+        run: npm install -g serverless
 
       - name: Deploy to AWS
         run: serverless deploy
