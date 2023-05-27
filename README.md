@@ -1,4 +1,6 @@
-# estcelafindelajournee [![Build Status](https://travis-ci.org/golpilolz/estcelafindelajournee.svg?branch=master)](https://travis-ci.org/golpilolz/estcelafindelajournee) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c060412cc7f4cd4bb1bcf103e2f25d1)](https://www.codacy.com/app/golpilolz/estcelafindelajournee?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=golpilolz/estcelafindelajournee&amp;utm_campaign=Badge_Grade)
+# Est ce la fin de la journée
+
+![Build Status](https://github.com/golpilolz/estcelafindelajournee/actions/workflows/deply-prod.yml/badge.svg) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8c060412cc7f4cd4bb1bcf103e2f25d1)](https://www.codacy.com/app/golpilolz/estcelafindelajournee)
 
 [https://estcelafindelajournee.fr](https://estcelafindelajournee.fr/) 
 

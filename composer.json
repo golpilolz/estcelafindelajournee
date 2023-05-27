@@ -8,6 +8,7 @@
         "ext-json": "*",
         "bref/bref": "*",
         "bref/symfony-bridge": "*",
+        "symfony/asset": "6.2.*",
         "symfony/console": "^6.2",
         "symfony/dotenv": "^6.2",
         "symfony/flex": "^2.2.2",
