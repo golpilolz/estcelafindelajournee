@@ -42,7 +42,7 @@ jobs:
       - name: install serverless
         run: |
           npm install -g serverless
-          serverless plugin install -n serverless-lift
+          npm install
 
       - name: Deploy to AWS
         run: serverless deploy

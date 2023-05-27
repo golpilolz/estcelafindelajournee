@@ -26,8 +26,6 @@ functions:
 
 constructs:
   website:
-    domain: estcelafindelajournee.fr
-    certificate: ${ssm:/estcelafindelajournee/certificatearn}
     type: server-side-website
     assets:
       '/bundles/*': public/bundles
