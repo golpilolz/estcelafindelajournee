@@ -3,6 +3,7 @@ service: estcelafindelajournee
 provider:
   name: aws
   stage: prod
+  region: eu-west-1
   environment:
     APP_ENV: 'prod'
     APP_DEBUG: false
@@ -15,10 +16,9 @@ plugins:
 functions:
   api:
     handler: public/index.php
-    description: ''
-    timeout: 28 # in seconds (API Gateway has a timeout of 29 seconds)
-    layers:
-      - ${bref:layer.php-82-fpm}
+    description: 'estcelafindelajournee.fr'
+    timeout: 10
+    runtime: php-82-fpm
     events:
       - httpApi: '*'
 
@@ -26,12 +26,10 @@ constructs:
   website:
     type: server-side-website
     assets:
-      '/bundles/*': public/bundles
-      '/build/*': public/build
-      '/js/*': public/js
-      '/css/*': public/css
+      '/assets/*': public/assets
       '/favicon.ico': public/favicon.ico
       '/robots.txt': public/robots.txt
+      '/sitemap.xml': public/sitemap.xml
     domain: estcelafindelajournee.fr
     certificate: ${ssm:/estcelafindelajournee/certificatearn}
 
