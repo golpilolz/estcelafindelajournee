@@ -16,8 +16,10 @@
 /.idea/
 .env
 /php/
+/node_modules/
 ###< Project ###
 
 ###> bref/symfony-bridge ###
 /.serverless/
 ###< bref/symfony-bridge ###
+
