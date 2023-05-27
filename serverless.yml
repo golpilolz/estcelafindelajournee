@@ -1,12 +1,11 @@
-service: app
+service: estcelafindelajournee
 
 provider:
   name: aws
-  region: eu-west-1
-  runtime: provided.al2
   stage: prod
   environment:
     APP_ENV: 'prod'
+    APP_DEBUG: false
     APP_SECRET: ${ssm:/estcelafindelajournee/secret}
 
 plugins:
@@ -38,6 +37,9 @@ constructs:
 
 # Exclude files from deployment
 package:
-  exclude:
-    - 'node_modules/**'
-    - 'tests/**'
+  patterns:
+    - '!.env'
+    - '!node_modules/**'
+    - '!public/favicon.ico'
+    - '!public/assets/**'
+    - '!tests/**'
