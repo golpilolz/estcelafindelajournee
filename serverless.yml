@@ -33,6 +33,8 @@ constructs:
       '/favicon.ico': public/favicon.ico
       '/robots.txt': public/robots.txt
       '/sitemap.xml': public/sitemap.xml
+    domain: estcelafindelajournee.fr
+    certificate: ${ssm:/estcelafindelajournee/certificatearn}
 
 # Exclude files from deployment
 package:
