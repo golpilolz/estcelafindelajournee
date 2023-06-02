@@ -1,131 +1,184 @@
 [
   {
     "start": "000000",
+    "end": "080000",
+    "texts": [
+      {
+        "days": "MTWTFSS",
+        "response": "Bonne nuit",
+        "gif": "Jap1tdjahS0rm"
+      }
+    ]
+  },
+  {
+    "start": "080000",
     "end": "100000",
-    "texts": [{
-      "days": "MTWTFSS",
-      "response": "Non.",
-      "gif": "FEikw3bXVHdMk"
-    },{
-      "days": "MTWTFSS",
-      "response": "T'as déjà envie de rentrer ?!",
-      "gif": "LTYT5GTIiAMBa"
-    },{
-      "days": "MTWTFSS",
-      "response": "Tu vas pas nous enquiquiner toute la journée !",
-      "gif": "l2QZPujIz4rnop3Xi"
-    },{
-      "days": "MTWTFSS",
-      "response": "Non, mais tu peux aller prendre un café.",
-      "gif": "DrJm6F9poo4aA"
-    },{
-      "days": "MTWTFSS",
-      "response": "C'est autant la fin de la journée que ce sera le début de la journée quand ce sera la fin de la journée.",
-      "gif": "d3yxg15kJppJilnW"
-    }]
+    "texts": [
+      {
+        "days": "MTWTFSS",
+        "response": "Non.",
+        "gif": "FEikw3bXVHdMk"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "T'as déjà envie de rentrer ?!",
+        "gif": "LTYT5GTIiAMBa"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Tu vas pas nous enquiquiner toute la journée !",
+        "gif": "l2QZPujIz4rnop3Xi"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Non, mais tu peux aller prendre un café.",
+        "gif": "DrJm6F9poo4aA"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "C'est autant la fin de la journée que ce sera le début de la journée quand ce sera la fin de la journée.",
+        "gif": "d3yxg15kJppJilnW"
+      }
+    ]
   },
   {
     "start": "100000",
     "end": "120000",
-    "texts": [{
-      "days": "MTWTFSS",
-      "response": "Non.",
-      "gif": "54Y38YdCPe58XA0FpJ"
-    },{
-      "days": "MTWTFSS",
-      "response": "Certainement pas",
-      "gif": "tHy9Qsv4svHXt7Eiq5"
-    },{
-      "days": "MTWTFSS",
-      "response": "Tu ferais bien de te remettre au travail",
-      "gif": "yWh7b6fWA5rJm"
-    },{
-      "days": "MTWTFSS",
-      "response": "Oulaaah, non gamin !",
-      "gif": "bqrG9EUt9vS4U"
-    },{
-      "days": "MTWTFSS",
-      "response": "Non. Maintenant, retourne engraisser ton patron.",
-      "gif": "5fBH6z8aMV1RbA4FaSc"
-    }]
+    "texts": [
+      {
+        "days": "MTWTFSS",
+        "response": "Non.",
+        "gif": "54Y38YdCPe58XA0FpJ"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Certainement pas",
+        "gif": "tHy9Qsv4svHXt7Eiq5"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Tu ferais bien de te remettre au travail",
+        "gif": "yWh7b6fWA5rJm"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Oulaaah, non gamin !",
+        "gif": "bqrG9EUt9vS4U"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Non. Maintenant, retourne engraisser ton patron.",
+        "gif": "5fBH6z8aMV1RbA4FaSc"
+      }
+    ]
   },
   {
     "start": "120000",
     "end": "140000",
-    "texts": [{
-      "days": "MTWTFSS",
-      "response": "Non.",
-      "gif": "wYyTHMm50f4Dm"
-    },{
-      "days": "MTWTFSS",
-      "response": "Non, mais tu peux aller manger.",
-      "gif": "ZeB4HcMpsyDo4"
-    },{
-      "response": "Aller, va manger. Mais c'est pas la fin de la journée !",
-      "gif": "5ev3alRsskWA0"
-    },{
-      "days": "MTWTFSS",
-      "response": "Non, c'est la pause de midi.",
-      "gif": "12n1l8UF3Ib4je"
-    },{
-      "days": "MTWTFSS",
-      "response": "Non, mais tu peux arrêter de bosser pour le moment.",
-      "gif": "VmAjNEnSaYFvq"
-    }]
+    "texts": [
+      {
+        "days": "MTWTFSS",
+        "response": "Non.",
+        "gif": "wYyTHMm50f4Dm"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Non, mais tu peux aller manger.",
+        "gif": "ZeB4HcMpsyDo4"
+      },
+      {
+        "response": "Aller, va manger. Mais c'est pas la fin de la journée !",
+        "gif": "5ev3alRsskWA0"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Non, c'est la pause de midi.",
+        "gif": "12n1l8UF3Ib4je"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Non, mais tu peux arrêter de bosser pour le moment.",
+        "gif": "VmAjNEnSaYFvq"
+      }
+    ]
   },
   {
     "start": "140000",
     "end": "160000",
-    "texts": [{
-      "days": "MTWTFSS",
-      "response": "Non.",
-      "gif": "l7oGn4lXuxf0c"
-    },{
-      "days": "MTWTFSS",
-      "response": "Non, mais tu peux reprendre un café.",
-      "gif": "AmC5W2bbc41wY"
-    },{
-      "days": "MTWTFSS",
-      "response": "Non, mais on se rapproche.",
-      "gif": "5q3NyUvgt1w9unrLJ9"
-    },{
-      "days": "MTWTFSS",
-      "response": "Va demander à ton supérieur ce que tu peux faire, t'as l'air désoeuvré.",
-      "gif": "mPytjcsG3XS4o"
-    }]
+    "texts": [
+      {
+        "days": "MTWTFSS",
+        "response": "Non.",
+        "gif": "l7oGn4lXuxf0c"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Non, mais tu peux reprendre un café.",
+        "gif": "AmC5W2bbc41wY"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Non, mais on se rapproche.",
+        "gif": "5q3NyUvgt1w9unrLJ9"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Va demander à ton supérieur ce que tu peux faire, t'as l'air désoeuvré.",
+        "gif": "mPytjcsG3XS4o"
+      }
+    ]
   },
   {
     "start": "160000",
     "end": "180000",
-    "texts": [{
-      "days": "MTWTFSS",
-      "response": "On y est presque, courage !",
-      "gif": "1xoq6EaNwjqm2XzGrg"
-    },{
-      "days": "MTWTFSS",
-      "response": "Bientôt, BIENTÔT, BIENTÔT !",
-      "gif": "10vJoTT4oWZR84"
-    },{
-      "days": "MTWTFSS",
-      "response": "Tu peux commencer à discrètement ranger tes affaires.",
-      "gif": "2wV85foFKx7Qjddw6k"
-    },{
-      "days": "MTWTFSS",
-      "response": "Tes chaussures sont bien lassées ?",
-      "gif": "ctThrZ834Ic3m"
-    }]
+    "texts": [
+      {
+        "days": "MTWTFSS",
+        "response": "On y est presque, courage !",
+        "gif": "1xoq6EaNwjqm2XzGrg"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Bientôt, BIENTÔT, BIENTÔT !",
+        "gif": "10vJoTT4oWZR84"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Tu peux commencer à discrètement ranger tes affaires.",
+        "gif": "2wV85foFKx7Qjddw6k"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "Tes chaussures sont bien lassées ?",
+        "gif": "ctThrZ834Ic3m"
+      }
+    ]
   },
   {
     "start": "180000",
+    "end": "200000",
+    "texts": [
+      {
+        "days": "MTWTFSS",
+        "response": "GOGOGOGOGOGOGO",
+        "gif": "xT0Gqr2V8DpUGdKgcU"
+      },
+      {
+        "days": "MTWTFSS",
+        "response": "C'est fini, rentre chez toi.",
+        "gif": "13TvMGRNYxrFEQ"
+      }
+    ]
+  },
+  {
+    "start": "200000",
     "end": "235959",
-    "texts": [{
-      "days": "MTWTFSS",
-      "response": "GOGOGOGOGOGOGO",
-      "gif": "xT0Gqr2V8DpUGdKgcU"
-    },{
-      "days": "MTWTFSS",
-      "response": "C'est fini, rentre chez toi.",
-      "gif": "13TvMGRNYxrFEQ"
-    }]
+    "texts": [
+      {
+        "days": "MTWTFSS",
+        "response": "Bonne soirée",
+        "gif": "U4DswrBiaz0p67ZweH"
+      }
+    ]
   }
 ]
