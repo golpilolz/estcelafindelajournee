@@ -24,6 +24,7 @@ class DictionnaryService {
     $currentTime = $datetime->format('Gis');
 
     $allWords = $words = $this->getWords((int)$currentTime);
+
     foreach ($words as $key => $word) {
       if (!$this->isAvailableToday($word)) {
         unset($words[$key]);
