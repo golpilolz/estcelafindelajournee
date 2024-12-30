@@ -12,7 +12,7 @@ class Kernel extends BaseKernel
 {
   use MicroKernelTrait;
 
-  private const CONFIG_EXTS = '.{php,xml,yaml,yml}';
+  private const string CONFIG_EXTS = '.{php,xml,yaml,yml}';
 
   public function registerBundles(): iterable
   {
@@ -36,6 +36,7 @@ class Kernel extends BaseKernel
     $loader->load($confDir . '/{services}_' . $this->environment . self::CONFIG_EXTS, 'glob');
   }
 
+  #[\Override]
   public function getLogDir(): string
   {
     // When on the lambda only /tmp is writeable
@@ -46,6 +47,7 @@ class Kernel extends BaseKernel
     return parent::getLogDir();
   }
 
+  #[\Override]
   public function getCacheDir(): string
   {
     // When on the lambda only /tmp is writeable
