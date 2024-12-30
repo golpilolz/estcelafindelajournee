@@ -1,6 +1,6 @@
 name: Run tests
 
-on: [push]
+on: [ push ]
 
 jobs:
     build-test:
@@ -8,5 +8,11 @@ jobs:
 
         steps:
             -   uses: actions/checkout@v3
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v2
+                with:
+                    php-version: '8.4'
             -   uses: php-actions/composer@v6
-            -   uses: php-actions/phpunit@v3
+            -   run: php bin/console cache:warmup --env=dev
+            -   run: php bin/phpunit
+            -   run: vendor/bin/phpstan --error-format=github
