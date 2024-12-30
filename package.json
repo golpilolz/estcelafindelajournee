@@ -1,5 +1,5 @@
 {
   "devDependencies": {
-    "serverless-lift": "^1.26.1"
+    "serverless-lift": "^1.30.3"
   }
 }
