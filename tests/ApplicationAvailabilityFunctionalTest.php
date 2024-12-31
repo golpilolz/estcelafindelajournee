@@ -4,11 +4,12 @@ namespace App\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ApplicationAvailabilityFunctionalTest extends WebTestCase {
+class ApplicationAvailabilityFunctionalTest extends WebTestCase
+{
     /**
      * @dataProvider urlProvider
      */
-    public function testPageIsSuccessful($url)
+    public function testPageIsSuccessful(string $url): void
     {
         $client = self::createClient();
         $client->request('GET', $url);
@@ -16,7 +17,7 @@ class ApplicationAvailabilityFunctionalTest extends WebTestCase {
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
-    public function urlProvider()
+    public function urlProvider(): \Generator
     {
         yield ['/'];
         yield ['/api'];

@@ -15,4 +15,4 @@ jobs:
             -   uses: php-actions/composer@v6
             -   run: php bin/console cache:warmup --env=dev
             -   run: php bin/phpunit
-            -   run: php vendor/bin/phpstan --error-format=github
+            -   run: php vendor/bin/phpstan --no-progress --error-format=github
