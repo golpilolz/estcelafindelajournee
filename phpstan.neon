@@ -1,7 +1,7 @@
 parameters:
     tipsOfTheDay: false
 
-    level: 6
+    level: 10
     paths:
         - src
         - tests
@@ -10,5 +10,3 @@ parameters:
         containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
     scanDirectories:
         - var/cache/dev/Symfony/Config
-    ignoreErrors:
-            - '/Generator expects value type Symfony\\Component\\HttpKernel\\Bundle\\BundleInterface\, object given\./'

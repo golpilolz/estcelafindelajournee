@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class GifsServiceTest extends WebTestCase
 {
-    public function testGetUrlFromKey() {
+    public function testGetUrlFromKey(): void {
         self::bootKernel();
 
         $gifsService = self::getContainer()->get(GifsService::class);
