@@ -1,9 +1,12 @@
-includes:
-	- vendor/phpstan/phpstan-symfony/extension.neon
 parameters:
     tipsOfTheDay: false
-    checkMissingIterableValueType: false
+
+    level: 10
+    paths:
+        - src
+        - tests
+
     symfony:
         containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
-    ignoreErrors:
-            - '/Generator expects value type Symfony\\Component\\HttpKernel\\Bundle\\BundleInterface\, object given\./'
+    scanDirectories:
+        - var/cache/dev/Symfony/Config
