@@ -11,6 +11,7 @@ class AppExtension extends AbstractExtension {
   {
   }
 
+  #[\Override]
   public function getFilters(): array {
     return [
       new TwigFilter('giphy', $this->giphy(...)),

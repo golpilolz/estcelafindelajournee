@@ -4,59 +4,71 @@ namespace App\Service;
 
 use Psr\Log\LoggerInterface;
 
-class DictionnaryService {
-  private array $json;
-
-  public function __construct(private readonly LoggerInterface $logger) {
-    try {
-      $this->json = json_decode($this->loadDictionary(), null, 512, JSON_THROW_ON_ERROR);
-    } catch (\JsonException $e) {
-      $this->logger->error($e->getMessage());
-    }
-    if (!$this->json) {
-      $this->json = [];
-    }
-  }
-
-  public function getWord(): array {
-    $datetime = new \DateTime();
-    $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
-    $currentTime = $datetime->format('Gis');
-
-    $allWords = $words = $this->getWords((int)$currentTime);
-    foreach ($words as $key => $word) {
-      if (!$this->isAvailableToday($word)) {
-        unset($words[$key]);
-      }
+class DictionnaryService
+{
+    public function __construct()
+    {
+//        try {
+//            $this->json = json_decode($this->loadDictionary(), true, flags: JSON_THROW_ON_ERROR);
+//        } catch (\JsonException $e) {
+//            $this->json = [];
+//            $this->logger->error($e->getMessage());
+//        }
     }
 
-    if ($words === []) {
-      $words = $allWords;
+    /**
+     * @return array{response: string, gif: string}
+     */
+    public function getWord(): array
+    {
+        $datetime = new \DateTime();
+        $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
+        $currentTime = $datetime->format('Gis');
+
+        $allWords = $words = $this->getWords((int)$currentTime);
+
+        foreach ($words as $key => $word) {
+            if (!$this->isAvailableToday($word)) {
+                unset($words[$key]);
+            }
+        }
+
+        if ($words === []) {
+            $words = $allWords;
+        }
+        $key = array_rand($words);
+
+        return [
+            'response' => $words[$key]['response'],
+            'gif' => $words[$key]['gif']
+        ];
     }
-    $key = array_rand($words);
 
-    return [
-      'response' => $words[$key]->response,
-      'gif' => $words[$key]->gif
-    ];
-  }
+    /**
+     * @param int $currentTime
+     * @return array<string, array{days: string, response: string, gif: string}>
+     */
+    private function getWords(int $currentTime): array
+    {
+        /** @var array<int, array{start: string, end: string, texts: array<string, array{days: string, response: string, gif: string}>}> $items */
+        $items = json_decode($this->loadDictionary(), true);
 
-  private function getWords(int $currentTime): array {
-    foreach ($this->json as $item) {
-      if ((int)$item->start <= $currentTime && (int)$item->end > $currentTime) {
-        return $item->texts;
-      }
+        foreach ($items as $item) {
+            if ((int)$item['start'] <= $currentTime && (int)$item['end'] > $currentTime) {
+                return $item['texts'];
+            }
+        }
+        return [];
     }
-    return [];
-  }
 
-  private function loadDictionary(): string {
-    $jsonFile = file_get_contents(__DIR__ . '/../../dictionary.json');
+    private function loadDictionary(): string
+    {
+        $jsonFile = file_get_contents(__DIR__ . '/../../dictionary.json');
 
-    if ($jsonFile) {
-      return $jsonFile;
-    }
-    return '[{
+        if ($jsonFile) {
+            return $jsonFile;
+        }
+        return '[{
             "start": "000000",
             "end": "235959",
             "texts": [{
@@ -65,15 +77,19 @@ class DictionnaryService {
               "gif": "dlMIwDQAxXn1K"
             }]
         }]';
-  }
+    }
 
-  private function isAvailableToday(\stdClass $word): bool {
-    $now = new \DateTime();
-    $wordArray = str_split((string) $word->days);
+    /**
+     * @param array{days: string, response: string, gif: string} $word
+     */
+    private function isAvailableToday(array $word): bool
+    {
+        $now = new \DateTime();
+        $wordArray = str_split((string)$word['days']);
 
-    $day = substr($now->format('D'), 0, 1);
-    $wordDay = $wordArray[(int) $now->format('N') - 1];
+        $day = substr($now->format('D'), 0, 1);
+        $wordDay = $wordArray[(int)$now->format('N') - 1];
 
-    return ($wordDay !== '-' && $wordDay === $day);
-  }
+        return ($wordDay !== '-' && $wordDay === $day);
+    }
 }
