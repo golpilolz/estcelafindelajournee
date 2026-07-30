@@ -18,7 +18,7 @@ functions:
     handler: public/index.php
     description: 'estcelafindelajournee.fr'
     timeout: 10
-    runtime: php-85
+    runtime: php-85-fpm
     events:
       - httpApi: '*'
   console:
