@@ -1,11 +1,6 @@
 name: Deploy to Prod
 
 on:
-  workflow_run:
-    workflows:
-      - "Run tests"
-    types:
-      - completed
   push:
     branches:
       - master
