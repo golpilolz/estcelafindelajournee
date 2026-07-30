@@ -2,5 +2,3 @@ when@dev:
     _errors:
         resource: '@FrameworkBundle/Resources/config/routing/errors.php'
         prefix: /_error
-
-trusted_headers: [ 'x-forwarded-for', 'x-forwarded-proto', 'x-forwarded-port', 'x-forwarded-host' ]
