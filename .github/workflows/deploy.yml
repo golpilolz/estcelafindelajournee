@@ -34,6 +34,9 @@ jobs:
       - name: Warmup cache
         run: php bin/console cache:warmup --env=prod
 
+      - name: Disable Dotenv (use Lambda env vars directly)
+        run: echo "<?php return [];" > .env.local.php
+
       - name: Install assets
         run: php bin/console assets:install --env prod
 
