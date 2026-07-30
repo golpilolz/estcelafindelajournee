@@ -45,7 +45,6 @@ class DictionnaryService
     }
 
     /**
-     * @param int $currentTime
      * @return array<string, array{days: string, response: string, gif: string}>
      */
     private function getWords(int $currentTime): array

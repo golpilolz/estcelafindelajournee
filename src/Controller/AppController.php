@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller;
 
 use App\Service\DictionnaryService;
@@ -9,28 +11,28 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/', name: 'app_')]
 class AppController extends AbstractController
 {
-    #[Route('', name: 'index')]
-    public function index(DictionnaryService $dictionnaryService): Response
+    public function __construct(private readonly \App\Service\DictionnaryService $dictionnaryService, private readonly \App\Service\GifsService $gifsService)
     {
-        $word = $dictionnaryService->getWord();
-
+    }
+    #[Route('/', name: 'app_index')]
+    public function index(): Response
+    {
+        $word = $this->dictionnaryService->getWord();
         return $this->render('index.html.twig', [
             'word' => $word['response'],
             'gif' => $word['gif']
         ]);
     }
 
-    #[Route('/api', name: 'api')]
-    public function api(DictionnaryService $dictionnaryService, GifsService $gifsService): JsonResponse
+    #[Route('/api', name: 'app_api')]
+    public function api(): JsonResponse
     {
-        $word = $dictionnaryService->getWord();
-
+        $word = $this->dictionnaryService->getWord();
         return new JsonResponse([
             'word' => $word['response'],
-            'gif' => $gifsService->getUrlFromKey($word['gif'])
+            'gif' => $this->gifsService->getUrlFromKey($word['gif'])
         ]);
     }
 }

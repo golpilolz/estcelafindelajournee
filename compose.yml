@@ -1,6 +1,6 @@
 services:
     app:
-        image: bref/php-84-fpm-dev:2
+        image: bref/php-85-dev:3
         ports: [ '8000:8000' ]
         volumes:
             - .:/var/task
@@ -8,3 +8,4 @@ services:
         environment:
             HANDLER: public/index.php
             DOCUMENT_ROOT: public
+            BREF_RUNTIME: fpm

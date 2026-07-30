@@ -1,26 +1,27 @@
 <?php
 
-declare(strict_types=1);
-
-use Rector\CodeQuality\Rector\Class_\InlineConstructorDefaultToPropertyRector;
 use Rector\Config\RectorConfig;
 use Rector\Set\ValueObject\LevelSetList;
-use Rector\Set\ValueObject\SetList;
+use Rector\Symfony\Set\SymfonySetList;
+use Rector\ValueObject\PhpVersion;
 
-return static function (RectorConfig $rectorConfig): void {
-  $rectorConfig->paths([
-    __DIR__ . '/config',
-    __DIR__ . '/public',
-    __DIR__ . '/src',
-    __DIR__ . '/tests',
-  ]);
-
-  // register a single rule
-  $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
-
-  // define sets of rules
-  $rectorConfig->sets([
-    LevelSetList::UP_TO_PHP_84,
-    SetList::CODE_QUALITY
-  ]);
-};
+try {
+    return RectorConfig::configure()
+        ->withPhpVersion(PhpVersion::PHP_83)
+        ->withPaths([
+            __DIR__ . '/src',
+        ])
+        ->withPhpSets(php85: true)
+        // here we can define, what prepared sets of rules will be applied
+        ->withPreparedSets(deadCode: true, codeQuality: true, doctrineCodeQuality: true, symfonyCodeQuality: true)
+        ->withAttributesSets(symfony: true, doctrine: true)
+        ->withSymfonyContainerXml(__DIR__ . '/var/cache/dev/App_KernelDevDebugContainer.xml')
+        ->withComposerBased(symfony: true)
+        ->withSets([
+            LevelSetList::UP_TO_PHP_83,
+            SymfonySetList::SYMFONY_CONSTRUCTOR_INJECTION,
+        ]);
+} catch (\Rector\Exception\Configuration\InvalidConfigurationException $e) {
+    echo "Rector configuration error: " . $e->getMessage() . PHP_EOL;
+    exit(1);
+}
