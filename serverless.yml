@@ -14,21 +14,27 @@ plugins:
   - serverless-lift
 
 functions:
-  api:
+  web:
     handler: public/index.php
     description: 'estcelafindelajournee.fr'
     timeout: 10
     runtime: php-85
     events:
       - httpApi: '*'
+  console:
+    handler: bin/console
+    runtime: php-85-console
+    timeout: 120 # in seconds
 
 constructs:
   website:
     type: server-side-website
     assets:
-      '/assets/*': public/assets
+      '/bundles/*': public/bundles
+      '/build/*': public/build
       '/favicon.ico': public/favicon.ico
       '/robots.txt': public/robots.txt
+      '/assets/*': public/assets
       '/sitemap.xml': public/sitemap.xml
     domain: estcelafindelajournee.fr
     certificate: ${ssm:/estcelafindelajournee/certificatearn}
