@@ -7,7 +7,7 @@ use Rector\ValueObject\PhpVersion;
 
 try {
     return RectorConfig::configure()
-        ->withPhpVersion(PhpVersion::PHP_83)
+        ->withPhpVersion(PhpVersion::PHP_85)
         ->withPaths([
             __DIR__ . '/src',
         ])
@@ -18,7 +18,7 @@ try {
         ->withSymfonyContainerXml(__DIR__ . '/var/cache/dev/App_KernelDevDebugContainer.xml')
         ->withComposerBased(symfony: true)
         ->withSets([
-            LevelSetList::UP_TO_PHP_83,
+            LevelSetList::UP_TO_PHP_85,
             SymfonySetList::SYMFONY_CONSTRUCTOR_INJECTION,
         ]);
 } catch (\Rector\Exception\Configuration\InvalidConfigurationException $e) {
