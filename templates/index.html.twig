@@ -1,16 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block description %}
-  {{ word }}
-{% endblock %}
+{% block description %}{{ word }}{% endblock %}
 
-{% block ogdescription %}
-  {{ word }}
-{% endblock %}
+{% block ogdescription %}{{ word }}{% endblock %}
 
-{% block ogimage %}
-  {{ gif | giphy }}
-{% endblock %}
+{% block ogimage %}{{ gif|giphy }}{% endblock %}
 
 {% block body %}
   <h1>{{ word }}</h1>

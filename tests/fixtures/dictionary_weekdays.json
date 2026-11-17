@@ -1,0 +1,10 @@
+[
+  {
+    "start": "000000",
+    "end": "240000",
+    "texts": [
+      {"days": "----F--", "response": "friday", "gif": "friday"},
+      {"days": "-----S-", "response": "saturday", "gif": "saturday"}
+    ]
+  }
+]

@@ -22,8 +22,6 @@
 </head>
 <body>
 {% block body %}{% endblock %}
-{% block javascripts %}{% endblock %}
-</body>
 <footer>
     <a href="{{ path('app_api') }}" title="Open JSON version" target="_blank">
         <i class="fas fa-code"></i>
@@ -32,4 +30,6 @@
         <i class="fab fa-github"></i>
     </a>
 </footer>
+{% block javascripts %}{% endblock %}
+</body>
 </html>
