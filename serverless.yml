@@ -4,6 +4,8 @@ provider:
   name: aws
   stage: prod
   region: eu-west-1
+  architecture: arm64
+  logRetentionInDays: 14
   environment:
     APP_ENV: 'prod'
     APP_DEBUG: '0'
@@ -45,3 +47,6 @@ package:
     - '!public/favicon.ico'
     - '!public/assets/**'
     - '!tests/**'
+    - '!storage/**'
+    - '!github-token'
+    - '!compose.yml'
