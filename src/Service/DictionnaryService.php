@@ -2,33 +2,23 @@
 
 namespace App\Service;
 
-use Psr\Log\LoggerInterface;
-
 class DictionnaryService
 {
-    public function __construct()
+    public function __construct(private readonly string $dictionaryPath = __DIR__ . '/../../dictionary.json')
     {
-//        try {
-//            $this->json = json_decode($this->loadDictionary(), true, flags: JSON_THROW_ON_ERROR);
-//        } catch (\JsonException $e) {
-//            $this->json = [];
-//            $this->logger->error($e->getMessage());
-//        }
     }
 
     /**
      * @return array{response: string, gif: string}
      */
-    public function getWord(): array
+    public function getWord(\DateTimeInterface $now = new \DateTimeImmutable()): array
     {
-        $datetime = new \DateTime();
-        $datetime->setTimezone(new \DateTimeZone('Europe/Paris'));
-        $currentTime = $datetime->format('Gis');
+        $now = \DateTimeImmutable::createFromInterface($now)->setTimezone(new \DateTimeZone('Europe/Paris'));
 
-        $allWords = $words = $this->getWords((int)$currentTime);
+        $allWords = $words = $this->getWords((int)$now->format('Gis'));
 
         foreach ($words as $key => $word) {
-            if (!$this->isAvailableToday($word)) {
+            if (!$this->isAvailableOn($word, $now)) {
                 unset($words[$key]);
             }
         }
@@ -50,7 +40,7 @@ class DictionnaryService
     private function getWords(int $currentTime): array
     {
         /** @var array<int, array{start: string, end: string, texts: array<string, array{days: string, response: string, gif: string}>}> $items */
-        $items = json_decode((string) file_get_contents(__DIR__ . '/../../dictionary.json'), true, flags: JSON_THROW_ON_ERROR);
+        $items = json_decode((string) file_get_contents($this->dictionaryPath), true, flags: JSON_THROW_ON_ERROR);
 
         foreach ($items as $item) {
             if ((int)$item['start'] <= $currentTime && (int)$item['end'] > $currentTime) {
@@ -63,10 +53,9 @@ class DictionnaryService
     /**
      * @param array{days: string, response: string, gif: string} $word
      */
-    private function isAvailableToday(array $word): bool
+    private function isAvailableOn(array $word, \DateTimeImmutable $now): bool
     {
-        $now = new \DateTime();
-        $wordArray = str_split((string)$word['days']);
+        $wordArray = str_split($word['days']);
 
         $day = substr($now->format('D'), 0, 1);
         $wordDay = $wordArray[(int)$now->format('N') - 1];
