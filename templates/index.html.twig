@@ -4,10 +4,13 @@
 
 {% block ogdescription %}{{ word }}{% endblock %}
 
-{% block ogimage %}{{ gif|giphy }}{% endblock %}
+{% block ogimage %}{{ gif|giphy('giphy_s.gif') }}{% endblock %}
 
 {% block body %}
   <h1>{{ word }}</h1>
 
-  <img src="{{ gif | giphy }}" alt="{{ word }}">
+  <picture>
+    <source srcset="{{ gif|giphy('giphy.webp') }}" type="image/webp">
+    <img src="{{ gif|giphy }}" alt="">
+  </picture>
 {% endblock %}
