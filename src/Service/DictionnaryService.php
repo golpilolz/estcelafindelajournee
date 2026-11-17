@@ -50,7 +50,7 @@ class DictionnaryService
     private function getWords(int $currentTime): array
     {
         /** @var array<int, array{start: string, end: string, texts: array<string, array{days: string, response: string, gif: string}>}> $items */
-        $items = json_decode($this->loadDictionary(), true);
+        $items = json_decode((string) file_get_contents(__DIR__ . '/../../dictionary.json'), true, flags: JSON_THROW_ON_ERROR);
 
         foreach ($items as $item) {
             if ((int)$item['start'] <= $currentTime && (int)$item['end'] > $currentTime) {
@@ -58,24 +58,6 @@ class DictionnaryService
             }
         }
         return [];
-    }
-
-    private function loadDictionary(): string
-    {
-        $jsonFile = file_get_contents(__DIR__ . '/../../dictionary.json');
-
-        if ($jsonFile) {
-            return $jsonFile;
-        }
-        return '[{
-            "start": "000000",
-            "end": "235959",
-            "texts": [{
-              "days" => "MTWTFSS",
-              "response": "Erreur de chargement du dictionnaire.",
-              "gif": "dlMIwDQAxXn1K"
-            }]
-        }]';
     }
 
     /**
