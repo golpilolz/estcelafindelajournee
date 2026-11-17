@@ -1,7 +1,7 @@
 body {
     text-align: center;
-    padding-top: 100px;
-    margin-left: 10px;
+    margin: 0;
+    padding: 100px 10px 70px;
 }
 
 h1 {
@@ -24,12 +24,18 @@ footer {
 }
 
 footer a {
-    color: rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.45);
     text-decoration: none;
 }
 
 footer a:hover {
-    color: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+footer svg {
+    height: 1em;
+    fill: currentColor;
+    vertical-align: middle;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -39,10 +45,10 @@ footer a:hover {
     }
 
     footer a {
-        color: rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.5);
     }
 
     footer a:hover {
-        color: rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.8);
     }
 }

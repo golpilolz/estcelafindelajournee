@@ -16,5 +16,9 @@ class GifsServiceTest extends WebTestCase
             'https://media.giphy.com/media/abcd/giphy.gif',
             $gifsService->getUrlFromKey('abcd')
         );
+        $this->assertEquals(
+            'https://media.giphy.com/media/abcd/giphy.webp',
+            $gifsService->getUrlFromKey('abcd', 'giphy.webp')
+        );
     }
 }

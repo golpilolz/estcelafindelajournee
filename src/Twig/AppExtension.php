@@ -20,7 +20,7 @@ class AppExtension extends AbstractExtension {
     ];
   }
 
-  public function giphy(string $key): string {
-    return $this->gifsService->getUrlFromKey($key);
+  public function giphy(string $key, string $file = 'giphy.gif'): string {
+    return $this->gifsService->getUrlFromKey($key, $file);
   }
 }
