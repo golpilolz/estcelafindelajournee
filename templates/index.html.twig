@@ -9,8 +9,43 @@
 {% block body %}
   <h1>{{ word }}</h1>
 
-  <picture>
-    <source srcset="{{ gif|giphy('giphy.webp') }}" type="image/webp">
-    <img src="{{ gif|giphy }}" alt="">
-  </picture>
+  <div class="gif">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="{{ gif|giphy('giphy_s.gif') }}">
+      <source srcset="{{ gif|giphy('giphy.webp') }}" type="image/webp">
+      <img src="{{ gif|giphy }}" alt="" data-still="{{ gif|giphy('giphy_s.gif') }}">
+    </picture>
+    <button type="button" id="gif-toggle" aria-label="Mettre l'animation en pause" hidden>
+      <svg class="icon-pause" aria-hidden="true" viewBox="0 0 24 24"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
+      <svg class="icon-play" aria-hidden="true" viewBox="0 0 24 24" hidden><path d="M7 4l13 8-13 8z"/></svg>
+    </button>
+  </div>
+{% endblock %}
+
+{% block javascripts %}
+<script>
+  (() => {
+    const picture = document.querySelector('picture');
+    const img = picture.querySelector('img');
+    const button = document.getElementById('gif-toggle');
+    // JS takes over from the reduced-motion <source>: it would win even after the user presses play.
+    picture.querySelector('source[media]').remove();
+    const source = picture.querySelector('source');
+    const animated = { source: source.srcset, img: img.src };
+    const still = img.dataset.still;
+
+    const render = (paused) => {
+      source.srcset = paused ? still : animated.source;
+      img.src = paused ? still : animated.img;
+      button.setAttribute('aria-label', paused ? "Relancer l'animation" : "Mettre l'animation en pause");
+      button.querySelector('.icon-pause').hidden = paused;
+      button.querySelector('.icon-play').hidden = !paused;
+    };
+
+    let paused = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    render(paused);
+    button.hidden = false;
+    button.addEventListener('click', () => render(paused = !paused));
+  })();
+</script>
 {% endblock %}

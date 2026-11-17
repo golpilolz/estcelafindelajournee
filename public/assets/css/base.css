@@ -2,6 +2,54 @@ body {
     text-align: center;
     margin: 0;
     padding: 100px 10px 70px;
+    color: #000;
+    background-color: #fff;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+.gif {
+    position: relative;
+    display: inline-block;
+}
+
+.gif img {
+    display: block;
+}
+
+/* Fixed dark background so the white icon keeps >= 4.5:1 on any GIF frame. */
+#gif-toggle {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#gif-toggle:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+}
+
+#gif-toggle:focus-visible {
+    outline: 3px solid #fff;
+    box-shadow: 0 0 0 6px #000;
+}
+
+#gif-toggle svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
 }
 
 h1 {
