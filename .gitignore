@@ -12,6 +12,7 @@
 /php/
 /node_modules/
 CLAUDE.md
+github-token
 ###< Project ###
 
 ###> bref/symfony-bridge ###
