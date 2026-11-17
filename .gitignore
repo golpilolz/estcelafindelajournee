@@ -11,6 +11,7 @@
 .env
 /php/
 /node_modules/
+CLAUDE.md
 ###< Project ###
 
 ###> bref/symfony-bridge ###
